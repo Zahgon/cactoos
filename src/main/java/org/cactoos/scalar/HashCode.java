@@ -74,9 +74,7 @@ public final class HashCode implements Scalar<Integer> {
      * @param multiplier Step multiplier (odd prime recommended)
      * @param attributes The object's attributes
      */
-    public HashCode(
-        final int initial, final int multiplier, final Object... attributes
-    ) {
+    public HashCode(final int initial, final int multiplier, final Object... attributes) {
         this(initial, multiplier, new IterableOf<>(attributes));
     }
 
@@ -86,18 +84,8 @@ public final class HashCode implements Scalar<Integer> {
      * @param multiplier Step multiplier (odd prime recommended)
      * @param attributes The object's attributes
      */
-    public HashCode(
-        final int initial,
-        final int multiplier,
-        final Iterable<?> attributes
-    ) {
-        this(
-            new Folded<>(
-                initial,
-                (hash, attr) -> hash * multiplier + Objects.hashCode(attr),
-                attributes
-            )
-        );
+    public HashCode(final int initial, final int multiplier, final Iterable<?> attributes) {
+        this(new Folded<>(initial, (hash, attr) -> hash * multiplier + Objects.hashCode(attr), attributes));
     }
 
     /**
@@ -110,6 +98,6 @@ public final class HashCode implements Scalar<Integer> {
 
     @Override
     public Integer value() {
-        return this.origin.value();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

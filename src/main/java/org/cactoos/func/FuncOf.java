@@ -30,12 +30,10 @@ public final class FuncOf<X, Y> implements Func<X, Y> {
      * @param result Result to return
      */
     public FuncOf(final Proc<? super X> proc, final Y result) {
-        this(
-            input -> {
-                proc.exec(input);
-                return result;
-            }
-        );
+        this(input -> {
+            proc.exec(input);
+            return result;
+        });
     }
 
     /**
@@ -56,6 +54,6 @@ public final class FuncOf<X, Y> implements Func<X, Y> {
 
     @Override
     public Y apply(final X input) throws Exception {
-        return this.func.apply(input);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

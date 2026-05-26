@@ -82,8 +82,7 @@ public final class OutputStreamTo extends OutputStream {
      * @param size Buffer size
      * @since 0.13.1
      */
-    public OutputStreamTo(final Writer wtr, final Charset charset,
-        final int size) {
+    public OutputStreamTo(final Writer wtr, final Charset charset, final int size) {
         this(new OutputTo(wtr, charset, size));
     }
 
@@ -94,8 +93,7 @@ public final class OutputStreamTo extends OutputStream {
      * @param size Buffer size
      * @since 0.13.1
      */
-    public OutputStreamTo(final Writer wtr, final CharSequence charset,
-        final int size) {
+    public OutputStreamTo(final Writer wtr, final CharSequence charset, final int size) {
         this(new OutputTo(wtr, charset, size));
     }
 
@@ -106,8 +104,7 @@ public final class OutputStreamTo extends OutputStream {
      * @param size Buffer size
      * @since 0.13.1
      */
-    public OutputStreamTo(final Writer wtr, final CharsetDecoder ddr,
-        final int size) {
+    public OutputStreamTo(final Writer wtr, final CharsetDecoder ddr, final int size) {
         this(new OutputTo(wtr, ddr, size));
     }
 
@@ -125,34 +122,31 @@ public final class OutputStreamTo extends OutputStream {
      */
     private OutputStreamTo(final Scalar<? extends OutputStream> tgt) {
         super();
-        this.target = new Unchecked<>(
-            new Sticky<>(tgt)
-        );
+        this.target = new Unchecked<>(new Sticky<>(tgt));
     }
 
     @Override
     public void write(final int data) throws IOException {
-        this.target.value().write(data);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void write(final byte[] buffer) throws IOException {
-        this.target.value().write(buffer);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
-    public void write(final byte[] buffer, final int offset,
-        final int length) throws IOException {
-        this.target.value().write(buffer, offset, length);
+    public void write(final byte[] buffer, final int offset, final int length) throws IOException {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void close() throws IOException {
-        this.target.value().close();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void flush() throws IOException {
-        this.target.value().flush();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

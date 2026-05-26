@@ -56,8 +56,7 @@ public final class EqualsNullable implements Scalar<Boolean> {
      * @param first Scalar to get value to compare
      * @param second Scalar to get value to compare with
      */
-    public EqualsNullable(final Scalar<? extends Object> first,
-        final Scalar<? extends Object> second) {
+    public EqualsNullable(final Scalar<? extends Object> first, final Scalar<? extends Object> second) {
         this.first = first;
         this.second = second;
     }
@@ -65,9 +64,6 @@ public final class EqualsNullable implements Scalar<Boolean> {
     @Override
     @SuppressWarnings("PMD.CompareObjectsWithEquals")
     public Boolean value() throws Exception {
-        final Object source = this.first.value();
-        final Object compared = this.second.value();
-        return source == compared
-            || source != null && source.equals(compared);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

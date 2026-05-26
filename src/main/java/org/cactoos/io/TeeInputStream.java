@@ -43,56 +43,46 @@ public final class TeeInputStream extends InputStream {
 
     @Override
     public int read() throws IOException {
-        final int data = this.input.read();
-        if (data >= 0) {
-            this.output.write(data);
-        }
-        return data;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public int read(final byte[] buf) throws IOException {
-        return this.read(buf, 0, buf.length);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
-    public int read(final byte[] buf, final int offset,
-        final int len) throws IOException {
-        final int max = this.input.read(buf, offset, len);
-        if (max > 0) {
-            this.output.write(buf, offset, max);
-        }
-        return max;
+    public int read(final byte[] buf, final int offset, final int len) throws IOException {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public long skip(final long num) throws IOException {
-        return this.input.skip(num);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public int available() throws IOException {
-        return this.input.available();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void close() throws IOException {
-        this.input.close();
-        this.output.close();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void mark(final int limit) {
-        this.input.mark(limit);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void reset() throws IOException {
-        this.input.reset();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public boolean markSupported() {
-        return this.input.markSupported();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

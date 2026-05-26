@@ -34,93 +34,81 @@ public final class Immutable<T> implements Set<T> {
 
     @Override
     public int size() {
-        return this.set.size();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public boolean isEmpty() {
-        return this.set.isEmpty();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public boolean contains(final Object item) {
-        return this.set.contains(item);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public Iterator<T> iterator() {
-        return new org.cactoos.iterator.Immutable<>(this.set.iterator());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public Object[] toArray() {
-        return this.set.toArray();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public <X> X[] toArray(final X[] array) {
-        return this.set.toArray(array);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public boolean add(final T item) {
-        throw new UnsupportedOperationException(
-            "#add(T): the set is read-only"
-        );
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public boolean remove(final Object item) {
-        throw new UnsupportedOperationException(
-            "#remove(Object): the set is read-only"
-        );
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public boolean containsAll(final Collection<?> items) {
-        return this.set.containsAll(items);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public boolean addAll(final Collection<? extends T> items) {
-        throw new UnsupportedOperationException(
-            "#addAll(Collection): the set is read-only"
-        );
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public boolean retainAll(final Collection<?> items) {
-        throw new UnsupportedOperationException(
-            "#retainAll(Collection): the set is read-only"
-        );
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public boolean removeAll(final Collection<?> items) {
-        throw new UnsupportedOperationException(
-            "#removeAll(Collection): the set is read-only"
-        );
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void clear() {
-        throw new UnsupportedOperationException(
-            "#clear(): the set is read-only"
-        );
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public boolean equals(final Object other) {
-        return this.set.equals(other);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public int hashCode() {
-        return this.set.hashCode();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String toString() {
-        return this.set.toString();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

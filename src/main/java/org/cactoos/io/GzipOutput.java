@@ -2,7 +2,6 @@
  * SPDX-FileCopyrightText: Copyright (c) 2017-2026 Yegor Bugayenko
  * SPDX-License-Identifier: MIT
  */
-
 package org.cactoos.io;
 
 import java.io.OutputStream;
@@ -45,9 +44,6 @@ public final class GzipOutput implements Output {
 
     @Override
     public OutputStream stream() throws Exception {
-        return new GZIPOutputStream(
-            this.origin.stream(),
-            this.size
-        );
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

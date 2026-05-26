@@ -2,7 +2,6 @@
  * SPDX-FileCopyrightText: Copyright (c) 2017-2026 Yegor Bugayenko
  * SPDX-License-Identifier: MIT
  */
-
 package org.cactoos.io;
 
 import java.io.IOException;
@@ -30,13 +29,6 @@ public final class InputNoNulls implements Input {
 
     @Override
     public InputStream stream() throws Exception {
-        if (this.origin == null) {
-            throw new IOException("NULL instead of a valid input");
-        }
-        final InputStream stream = this.origin.stream();
-        if (stream == null) {
-            throw new IOException("NULL instead of a valid stream");
-        }
-        return stream;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

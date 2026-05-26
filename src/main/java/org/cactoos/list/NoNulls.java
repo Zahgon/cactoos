@@ -37,198 +37,126 @@ public final class NoNulls<T> implements List<T> {
 
     @Override
     public int size() {
-        return this.list.size();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public boolean isEmpty() {
-        return this.list.isEmpty();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public boolean contains(final Object item) {
-        return new org.cactoos.collection.NoNulls<>(this.list).contains(item);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public Iterator<T> iterator() {
-        return new org.cactoos.collection.NoNulls<>(this.list).iterator();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public Object[] toArray() {
-        return new org.cactoos.collection.NoNulls<>(this.list).toArray();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public <X> X[] toArray(final X[] array) {
-        return new org.cactoos.collection.NoNulls<>(this.list).toArray(array);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public boolean add(final T item) {
-        return new org.cactoos.collection.NoNulls<>(this.list).add(item);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public boolean remove(final Object item) {
-        return new org.cactoos.collection.NoNulls<>(this.list).remove(item);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public boolean containsAll(final Collection<?> items) {
-        return new org.cactoos.collection.NoNulls<>(
-            this.list
-        ).containsAll(items);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public boolean addAll(final Collection<? extends T> items) {
-        return new org.cactoos.collection.NoNulls<>(
-            this.list
-        ).addAll(items);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
-    public boolean addAll(final int index,
-        final Collection<? extends T> items) {
-        return this.list.addAll(
-            index,
-            new org.cactoos.collection.NoNulls<>(items)
-        );
+    public boolean addAll(final int index, final Collection<? extends T> items) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public boolean removeAll(final Collection<?> items) {
-        return new org.cactoos.collection.NoNulls<>(this.list).removeAll(items);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public boolean retainAll(final Collection<?> items) {
-        return new org.cactoos.collection.NoNulls<>(this.list).retainAll(items);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void clear() {
-        this.list.clear();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public T get(final int index) {
-        final T item = this.list.get(index);
-        if (item == null) {
-            throw new IllegalStateException(
-                new UncheckedText(
-                    new FormattedText(
-                        "Item #%d of %s is NULL",
-                        index,
-                        this.list
-                    )
-                ).asString()
-            );
-        }
-        return item;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public T set(final int index, final T item) {
-        if (item == null) {
-            throw new IllegalArgumentException(
-                new UncheckedText(
-                    new FormattedText(
-                        "Item can't be NULL in #set(%d,T)",
-                        index
-                    )
-                ).asString()
-            );
-        }
-        final T result = this.list.set(index, item);
-        if (result == null) {
-            throw new IllegalStateException(
-                new UncheckedText(
-                    new FormattedText(
-                        "Result of #set(%d,T) is NULL",
-                        index
-                    )
-                ).asString()
-            );
-        }
-        return result;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void add(final int index, final T item) {
-        if (item == null) {
-            throw new IllegalArgumentException(
-                new UncheckedText(
-                    new FormattedText(
-                        "Item can't be NULL in #add(%d,T)",
-                        index
-                    )
-                ).asString()
-            );
-        }
-        this.list.add(index, item);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public T remove(final int index) {
-        final T result = this.list.remove(index);
-        if (result == null) {
-            throw new IllegalStateException(
-                new UncheckedText(
-                    new FormattedText(
-                        "Result of #remove(%d) is NULL",
-                        index
-                    )
-                ).asString()
-            );
-        }
-        return result;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public int indexOf(final Object item) {
-        if (item == null) {
-            throw new IllegalArgumentException(
-                "Item can't be NULL in #indexOf(T)"
-            );
-        }
-        return this.list.indexOf(item);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public int lastIndexOf(final Object item) {
-        if (item == null) {
-            throw new IllegalArgumentException(
-                "Item can't be NULL in #lastIndexOf(T)"
-            );
-        }
-        return this.list.lastIndexOf(item);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public ListIterator<T> listIterator() {
-        return new ListIteratorNoNulls<>(this.list.listIterator());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public ListIterator<T> listIterator(final int index) {
-        return new ListIteratorNoNulls<>(this.list.listIterator(index));
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public List<T> subList(final int start, final int end) {
-        return new org.cactoos.list.NoNulls<>(this.list.subList(start, end));
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public boolean equals(final Object other) {
-        return this.list.equals(other);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public int hashCode() {
-        return this.list.hashCode();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

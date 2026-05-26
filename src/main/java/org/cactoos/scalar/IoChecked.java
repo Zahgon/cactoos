@@ -38,9 +38,6 @@ public final class IoChecked<T> implements Scalar<T> {
 
     @Override
     public T value() throws IOException {
-        return new Checked<>(
-            this.origin,
-            IOException::new
-        ).value();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

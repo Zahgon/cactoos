@@ -2,7 +2,6 @@
  * SPDX-FileCopyrightText: Copyright (c) 2017-2026 Yegor Bugayenko
  * SPDX-License-Identifier: MIT
  */
-
 package org.cactoos.io;
 
 import java.io.ByteArrayInputStream;
@@ -47,21 +46,6 @@ public final class Zip implements Input {
 
     @Override
     public InputStream stream() throws Exception {
-        final ByteArrayOutputStream out = new ByteArrayOutputStream();
-        try (ZipOutputStream zip = new ZipOutputStream(out)) {
-            for (final Path path : this.origin) {
-                final File file = path.toFile();
-                zip.putNextEntry(new ZipEntry(file.getPath()));
-                if (file.isFile()) {
-                    try (
-                        FileInputStream input = new FileInputStream(file)
-                    ) {
-                        zip.write(new BytesOf(new InputOf(input)).asBytes());
-                    }
-                }
-                zip.closeEntry();
-            }
-        }
-        return new ByteArrayInputStream(out.toByteArray());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

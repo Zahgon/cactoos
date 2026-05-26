@@ -36,8 +36,6 @@ public final class IoCheckedBiFunc<X, Y, Z> implements BiFunc<X, Y, Z> {
 
     @Override
     public Z apply(final X first, final Y second) throws IOException {
-        return new IoChecked<>(
-            () -> this.func.apply(first, second)
-        ).value();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

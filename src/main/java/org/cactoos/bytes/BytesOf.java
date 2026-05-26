@@ -499,19 +499,12 @@ public final class BytesOf implements Bytes {
      * @param charset The {@link Charset} used to encode the stack trace into bytes
      */
     public BytesOf(final Throwable error, final Charset charset) {
-        this(
-            () -> {
-                try (
-                    ByteArrayOutputStream baos =
-                        new ByteArrayOutputStream()
-                ) {
-                    error.printStackTrace(
-                        new PrintStream(baos, true, charset)
-                    );
-                    return baos.toByteArray();
-                }
+        this(() -> {
+            try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+                error.printStackTrace(new PrintStream(baos, true, charset));
+                return baos.toByteArray();
             }
-        );
+        });
     }
 
     /**
@@ -535,19 +528,12 @@ public final class BytesOf implements Bytes {
      * @param charset The charset represented as a {@link CharSequence}
      */
     public BytesOf(final Throwable error, final CharSequence charset) {
-        this(
-            () -> {
-                try (
-                    ByteArrayOutputStream baos =
-                        new ByteArrayOutputStream()
-                ) {
-                    error.printStackTrace(
-                        new PrintStream(baos, true, charset.toString())
-                    );
-                    return baos.toByteArray();
-                }
+        this(() -> {
+            try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+                error.printStackTrace(new PrintStream(baos, true, charset.toString()));
+                return baos.toByteArray();
             }
-        );
+        });
     }
 
     /**
@@ -589,23 +575,16 @@ public final class BytesOf implements Bytes {
      * @since 0.29
      */
     public BytesOf(final StackTraceElement[] strace, final Charset charset) {
-        this(
-            () -> {
-                try (
-                    ByteArrayOutputStream baos =
-                        new ByteArrayOutputStream();
-                    PrintStream stream = new PrintStream(
-                        baos, true, charset
-                    )
-                ) {
-                    for (final StackTraceElement element : strace) {
-                        stream.append(element.toString());
-                        stream.append((char) 10);
-                    }
-                    return baos.toByteArray();
+        this(() -> {
+            try (ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                PrintStream stream = new PrintStream(baos, true, charset)) {
+                for (final StackTraceElement element : strace) {
+                    stream.append(element.toString());
+                    stream.append((char) 10);
                 }
+                return baos.toByteArray();
             }
-        );
+        });
     }
 
     /**
@@ -626,25 +605,17 @@ public final class BytesOf implements Bytes {
      * @param charset The charset represented as a {@link CharSequence}
      * @since 0.29
      */
-    public BytesOf(final StackTraceElement[] strace,
-        final CharSequence charset) {
-        this(
-            () -> {
-                try (
-                    ByteArrayOutputStream baos =
-                        new ByteArrayOutputStream();
-                    PrintStream stream = new PrintStream(
-                        baos, true, charset.toString()
-                    )
-                ) {
-                    for (final StackTraceElement element : strace) {
-                        stream.append(element.toString());
-                        stream.append((char) 10);
-                    }
-                    return baos.toByteArray();
+    public BytesOf(final StackTraceElement[] strace, final CharSequence charset) {
+        this(() -> {
+            try (ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                PrintStream stream = new PrintStream(baos, true, charset.toString())) {
+                for (final StackTraceElement element : strace) {
+                    stream.append(element.toString());
+                    stream.append((char) 10);
                 }
+                return baos.toByteArray();
             }
-        );
+        });
     }
 
     /**
@@ -701,9 +672,7 @@ public final class BytesOf implements Bytes {
     public BytesOf(final Iterable<Byte> bytes) {
         this(() -> {
             final List<Byte> concrete = new ListOf<>(bytes);
-            final ByteBuffer buf = ByteBuffer.allocate(
-                concrete.size()
-            );
+            final ByteBuffer buf = ByteBuffer.allocate(concrete.size());
             concrete.forEach(buf::put);
             return buf.array();
         });
@@ -726,9 +695,7 @@ public final class BytesOf implements Bytes {
      */
     public BytesOf(final Collection<Byte> bytes) {
         this(() -> {
-            final ByteBuffer buf = ByteBuffer.allocate(
-                bytes.size()
-            );
+            final ByteBuffer buf = ByteBuffer.allocate(bytes.size());
             bytes.forEach(buf::put);
             return buf.array();
         });
@@ -754,6 +721,6 @@ public final class BytesOf implements Bytes {
 
     @Override
     public byte[] asBytes() throws Exception {
-        return this.origin.asBytes();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

@@ -52,16 +52,14 @@ public final class PropertiesOf implements Scalar<Properties> {
      * @param input Input
      */
     public PropertiesOf(final Input input) {
-        this(
-            () -> {
-                final Properties props = new Properties();
-                final InputStream stream = input.stream();
-                try (stream) {
-                    props.load(stream);
-                }
-                return props;
+        this(() -> {
+            final Properties props = new Properties();
+            final InputStream stream = input.stream();
+            try (stream) {
+                props.load(stream);
             }
-        );
+            return props;
+        });
     }
 
     /**
@@ -78,14 +76,7 @@ public final class PropertiesOf implements Scalar<Properties> {
      * @since 0.23
      */
     public PropertiesOf(final Iterable<? extends Map.Entry<?, ?>> entries) {
-        this(
-            new MapOf<>(
-                input -> new MapEntry<>(
-                    input.getKey().toString(), input.getValue().toString()
-                ),
-                entries
-            )
-        );
+        this(new MapOf<>(input -> new MapEntry<>(input.getKey().toString(), input.getValue().toString()), entries));
     }
 
     /**
@@ -93,18 +84,13 @@ public final class PropertiesOf implements Scalar<Properties> {
      * @param map The map with properties
      */
     public PropertiesOf(final Map<?, ?> map) {
-        this(
-            () -> {
-                final Properties props = new Properties();
-                for (final Map.Entry<?, ?> entry : map.entrySet()) {
-                    props.setProperty(
-                        entry.getKey().toString(),
-                        entry.getValue().toString()
-                    );
-                }
-                return props;
+        this(() -> {
+            final Properties props = new Properties();
+            for (final Map.Entry<?, ?> entry : map.entrySet()) {
+                props.setProperty(entry.getKey().toString(), entry.getValue().toString());
             }
-        );
+            return props;
+        });
     }
 
     /**
@@ -117,6 +103,6 @@ public final class PropertiesOf implements Scalar<Properties> {
 
     @Override
     public Properties value() throws IOException {
-        return this.scalar.value();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

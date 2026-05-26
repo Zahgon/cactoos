@@ -53,8 +53,7 @@ public interface Fallback<X> extends Func<Throwable, X> {
          * @param func Function that converts the given exception into required one
          */
         @SuppressWarnings("unchecked")
-        public From(final Class<? extends Throwable> exp,
-            final Func<Throwable, T> func) {
+        public From(final Class<? extends Throwable> exp, final Func<Throwable, T> func) {
             this(new IterableOf<>(exp), func);
         }
 
@@ -63,26 +62,19 @@ public interface Fallback<X> extends Func<Throwable, X> {
          * @param exps Supported exceptions types
          * @param func Function that converts the given exception into required one
          */
-        public From(
-            final Iterable<Class<? extends Throwable>> exps,
-            final Func<Throwable, T> func) {
+        public From(final Iterable<Class<? extends Throwable>> exps, final Func<Throwable, T> func) {
             this.exceptions = exps;
             this.func = func;
         }
 
         @Override
         public T apply(final Throwable exp) throws Exception {
-            return this.func.apply(exp);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         public int support(final Throwable exception) {
-            return new MinOf(
-                new Mapped<>(
-                    supported -> new InheritanceLevel(exception.getClass(), supported).value(),
-                    this.exceptions
-                )
-            ).intValue();
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 
@@ -95,12 +87,12 @@ public interface Fallback<X> extends Func<Throwable, X> {
 
         @Override
         public int support(final Throwable exception) {
-            return 0;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         public X apply(final Throwable input) {
-            throw new IllegalStateException(input);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 }

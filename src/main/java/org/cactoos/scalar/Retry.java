@@ -83,8 +83,7 @@ public final class Retry<T> implements Scalar<T> {
      * @param attempts Maximum number of attempts
      * @param wait The {@link Duration} to wait between attempts
      */
-    public Retry(final Scalar<? extends T> scalar, final int attempts,
-        final Duration wait) {
+    public Retry(final Scalar<? extends T> scalar, final int attempts, final Duration wait) {
         this(scalar, attempt -> attempt >= attempts, wait);
     }
 
@@ -93,8 +92,7 @@ public final class Retry<T> implements Scalar<T> {
      * @param scalar Func original
      * @param exit Exit condition, returns TRUE if there is no reason to try
      */
-    public Retry(final Scalar<? extends T> scalar,
-        final Func<Integer, Boolean> exit) {
+    public Retry(final Scalar<? extends T> scalar, final Func<Integer, Boolean> exit) {
         this(scalar, exit, Duration.ZERO);
     }
 
@@ -104,8 +102,7 @@ public final class Retry<T> implements Scalar<T> {
      * @param exit Exit condition, returns TRUE if there is no reason to try
      * @param wait The {@link Duration} to wait between attempts
      */
-    public Retry(final Scalar<? extends T> scalar,
-        final Func<Integer, Boolean> exit, final Duration wait) {
+    public Retry(final Scalar<? extends T> scalar, final Func<Integer, Boolean> exit, final Duration wait) {
         this.origin = scalar;
         this.func = exit;
         this.wait = wait;
@@ -113,10 +110,6 @@ public final class Retry<T> implements Scalar<T> {
 
     @Override
     public T value() throws Exception {
-        return new org.cactoos.func.Retry<>(
-            (Func<Boolean, T>) input -> this.origin.value(),
-            this.func,
-            this.wait
-        ).apply(true);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

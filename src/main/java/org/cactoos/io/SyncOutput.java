@@ -47,8 +47,6 @@ public final class SyncOutput implements Output {
 
     @Override
     public OutputStream stream() throws Exception {
-        synchronized (this.lock) {
-            return this.origin.stream();
-        }
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

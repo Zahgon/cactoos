@@ -37,12 +37,8 @@ public final class OffsetDateTimeOf implements Scalar<OffsetDateTime> {
      * @param format The format to use
      * @param offset The offset to use
      */
-    public OffsetDateTimeOf(final CharSequence date, final String format,
-        final ZoneOffset offset) {
-        this(
-            date,
-            () -> DateTimeFormatter.ofPattern(format).withZone(offset.normalized())
-        );
+    public OffsetDateTimeOf(final CharSequence date, final String format, final ZoneOffset offset) {
+        this(date, () -> DateTimeFormatter.ofPattern(format).withZone(offset.normalized()));
     }
 
     /**
@@ -51,8 +47,7 @@ public final class OffsetDateTimeOf implements Scalar<OffsetDateTime> {
      * @param date The date to parse
      * @param formatter The formatter to use
      */
-    public OffsetDateTimeOf(final CharSequence date,
-        final DateTimeFormatter formatter) {
+    public OffsetDateTimeOf(final CharSequence date, final DateTimeFormatter formatter) {
         this(date, () -> formatter);
     }
 
@@ -61,15 +56,12 @@ public final class OffsetDateTimeOf implements Scalar<OffsetDateTime> {
      * @param date The date to parse
      * @param fmt The formatter to use, deferred
      */
-    private OffsetDateTimeOf(final CharSequence date,
-        final Scalar<DateTimeFormatter> fmt) {
-        this.parsed = new Unchecked<>(
-            () -> ZonedDateTime.from(fmt.value().parse(date)).toOffsetDateTime()
-        );
+    private OffsetDateTimeOf(final CharSequence date, final Scalar<DateTimeFormatter> fmt) {
+        this.parsed = new Unchecked<>(() -> ZonedDateTime.from(fmt.value().parse(date)).toOffsetDateTime());
     }
 
     @Override
     public OffsetDateTime value() {
-        return this.parsed.value();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

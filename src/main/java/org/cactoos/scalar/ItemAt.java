@@ -35,18 +35,9 @@ public final class ItemAt<T> implements Scalar<T> {
      * @param iterable Iterable
      */
     public ItemAt(final int position, final Iterable<? extends T> iterable) {
-        this(
-            position,
-            itr -> {
-                throw new IOException(
-                    new FormattedText(
-                        "The iterable doesn't have the position #%d",
-                        position
-                    ).asString()
-                );
-            },
-            iterable
-        );
+        this(position, itr -> {
+            throw new IOException(new FormattedText("The iterable doesn't have the position #%d", position).asString());
+        }, iterable);
     }
 
     /**
@@ -55,11 +46,7 @@ public final class ItemAt<T> implements Scalar<T> {
      * @param fallback Fallback value
      * @param iterable Iterable
      */
-    public ItemAt(
-        final int position,
-        final T fallback,
-        final Iterable<? extends T> iterable
-    ) {
+    public ItemAt(final int position, final T fallback, final Iterable<? extends T> iterable) {
         this(position, new FuncOf<>(new Constant<>(fallback)), iterable);
     }
 
@@ -69,36 +56,28 @@ public final class ItemAt<T> implements Scalar<T> {
      * @param fallback Fallback value
      * @param iterable Iterable
      */
-    public ItemAt(
-        final int position,
-        final Func<? super Iterable<? extends T>, ? extends T> fallback,
-        final Iterable<? extends T> iterable
-    ) {
-        this.saved = new Sticky<>(
-            () -> {
-                if (position < 0) {
-                    throw new IOException(
-                        String.format("The position must be non-negative: %d", position)
-                    );
-                }
-                final Iterator<? extends T> src = iterable.iterator();
-                int cur;
-                for (cur = 0; cur < position && src.hasNext(); ++cur) {
-                    src.next();
-                }
-                final T result;
-                if (cur == position && src.hasNext()) {
-                    result = src.next();
-                } else {
-                    result = fallback.apply(new IterableOf<>(src));
-                }
-                return result;
+    public ItemAt(final int position, final Func<? super Iterable<? extends T>, ? extends T> fallback, final Iterable<? extends T> iterable) {
+        this.saved = new Sticky<>(() -> {
+            if (position < 0) {
+                throw new IOException(String.format("The position must be non-negative: %d", position));
             }
-        );
+            final Iterator<? extends T> src = iterable.iterator();
+            int cur;
+            for (cur = 0; cur < position && src.hasNext(); ++cur) {
+                src.next();
+            }
+            final T result;
+            if (cur == position && src.hasNext()) {
+                result = src.next();
+            } else {
+                result = fallback.apply(new IterableOf<>(src));
+            }
+            return result;
+        });
     }
 
     @Override
     public T value() throws Exception {
-        return this.saved.value();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

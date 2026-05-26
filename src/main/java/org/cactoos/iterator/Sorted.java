@@ -54,31 +54,24 @@ public final class Sorted<T> implements Iterator<T> {
      * @param cmp The comparator, deferred
      * @param iterator The underlying iterator
      */
-    private Sorted(
-        final org.cactoos.Scalar<Comparator<? super T>> cmp,
-        final Iterator<? extends T> iterator
-    ) {
-        this.scalar = new Unchecked<>(
-            new Sticky<>(
-                () -> {
-                    final List<T> items = new LinkedList<>();
-                    while (iterator.hasNext()) {
-                        items.add(iterator.next());
-                    }
-                    items.sort(cmp.value());
-                    return items.iterator();
-                }
-            )
-        );
+    private Sorted(final org.cactoos.Scalar<Comparator<? super T>> cmp, final Iterator<? extends T> iterator) {
+        this.scalar = new Unchecked<>(new Sticky<>(() -> {
+            final List<T> items = new LinkedList<>();
+            while (iterator.hasNext()) {
+                items.add(iterator.next());
+            }
+            items.sort(cmp.value());
+            return items.iterator();
+        }));
     }
 
     @Override
     public boolean hasNext() {
-        return this.scalar.value().hasNext();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public T next() {
-        return this.scalar.value().next();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

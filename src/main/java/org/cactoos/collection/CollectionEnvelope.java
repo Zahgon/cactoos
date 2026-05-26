@@ -16,8 +16,7 @@ import org.cactoos.iterable.IterableEnvelope;
  * @since 0.23
  */
 @SuppressWarnings("PMD.TooManyMethods")
-public abstract class CollectionEnvelope<X>
-    extends IterableEnvelope<X> implements Collection<X> {
+public abstract class CollectionEnvelope<X> extends IterableEnvelope<X> implements Collection<X> {
 
     /**
      * The wrapped collection.
@@ -35,61 +34,61 @@ public abstract class CollectionEnvelope<X>
 
     @Override
     public final int size() {
-        return this.col.size();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final boolean isEmpty() {
-        return this.col.isEmpty();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final boolean contains(final Object object) {
-        return this.col.contains(object);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final Object[] toArray() {
-        return this.col.toArray();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final <T> T[] toArray(final T[] array) {
-        return this.col.toArray(array);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final boolean add(final X item) {
-        return this.col.add(item);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final boolean remove(final Object object) {
-        return this.col.remove(object);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final boolean containsAll(final Collection<?> list) {
-        return this.col.containsAll(list);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final boolean addAll(final Collection<? extends X> list) {
-        return this.col.addAll(list);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final boolean removeAll(final Collection<?> list) {
-        return this.col.removeAll(list);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final boolean retainAll(final Collection<?> list) {
-        return this.col.retainAll(list);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final void clear() {
-        this.col.clear();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

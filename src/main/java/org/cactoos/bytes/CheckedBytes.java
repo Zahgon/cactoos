@@ -37,9 +37,6 @@ public final class CheckedBytes<E extends Exception> implements Bytes {
 
     @Override
     public byte[] asBytes() throws E {
-        return new Checked<>(
-            this.origin::asBytes,
-            this.func
-        ).value();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

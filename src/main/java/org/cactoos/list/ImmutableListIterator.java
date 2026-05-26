@@ -31,52 +31,46 @@ public final class ImmutableListIterator<T> implements ListIterator<T> {
 
     @Override
     public boolean hasNext() {
-        return this.origin.hasNext();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public T next() {
-        return this.origin.next();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public boolean hasPrevious() {
-        return this.origin.hasPrevious();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public T previous() {
-        return this.origin.previous();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public int nextIndex() {
-        return this.origin.nextIndex();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public int previousIndex() {
-        return this.origin.previousIndex();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void remove() {
-        throw new UnsupportedOperationException(
-            "List Iterator is read-only and doesn't allow removing items"
-        );
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void set(final T item) {
-        throw new UnsupportedOperationException(
-            "List Iterator is read-only and doesn't allow rewriting items"
-        );
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void add(final T item) {
-        throw new UnsupportedOperationException(
-            "List Iterator is read-only and doesn't allow adding items"
-        );
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

@@ -36,8 +36,7 @@ public final class TeeOutput implements Output {
      * @param mirror The copy destination
      * @param charset The charset
      */
-    public TeeOutput(final Output tgt, final Writer mirror,
-        final Charset charset) {
+    public TeeOutput(final Output tgt, final Writer mirror, final Charset charset) {
         this(tgt, new OutputTo(mirror, charset));
     }
 
@@ -89,8 +88,6 @@ public final class TeeOutput implements Output {
 
     @Override
     public OutputStream stream() throws Exception {
-        return new TeeOutputStream(
-            this.target.stream(), this.copy.stream()
-        );
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

@@ -15,8 +15,7 @@ import org.cactoos.scalar.Checked;
  * @param <E> Exception's type
  * @since 0.32
  */
-public final class CheckedBiProc<X, Y, E extends Exception> implements
-    BiProc<X, Y> {
+public final class CheckedBiProc<X, Y, E extends Exception> implements BiProc<X, Y> {
 
     /**
      * Original BiProc.
@@ -33,20 +32,13 @@ public final class CheckedBiProc<X, Y, E extends Exception> implements
      * @param original Original BiProc
      * @param fnc Function that wraps exceptions
      */
-    public CheckedBiProc(final BiProc<X, Y> original,
-        final Func<Exception, E> fnc) {
+    public CheckedBiProc(final BiProc<X, Y> original, final Func<Exception, E> fnc) {
         this.origin = original;
         this.func = fnc;
     }
 
     @Override
     public void exec(final X first, final Y second) throws E {
-        new Checked<>(
-            () -> {
-                this.origin.exec(first, second);
-                return true;
-            },
-            this.func
-        ).value();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

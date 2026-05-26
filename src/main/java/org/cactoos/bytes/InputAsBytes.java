@@ -52,19 +52,6 @@ public final class InputAsBytes implements Bytes {
 
     @Override
     public byte[] asBytes() throws Exception {
-        try (
-            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            InputStream stream = new TeeInput(
-                this.source,
-                new OutputTo(baos)
-            ).stream()
-        ) {
-            while (true) {
-                if (stream.read(new byte[this.size]) < 0) {
-                    break;
-                }
-            }
-            return baos.toByteArray();
-        }
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

@@ -49,13 +49,6 @@ public final class Timed<X, Y> implements Func<X, Y> {
 
     @Override
     public Y apply(final X input) throws Exception {
-        final Future<Y> future = this.func.apply(input);
-        try {
-            return future.get(this.time, TimeUnit.MILLISECONDS);
-        } catch (final InterruptedException | ExecutionException
-            | TimeoutException exp) {
-            future.cancel(true);
-            throw exp;
-        }
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

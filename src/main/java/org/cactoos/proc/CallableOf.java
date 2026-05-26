@@ -32,9 +32,7 @@ public final class CallableOf<T> implements Callable<T> {
      * @since 0.32
      */
     public <X> CallableOf(final Proc<? super X> proc, final X ipt) {
-        this(
-            () -> new UncheckedProc<>(proc).exec(ipt)
-        );
+        this(() -> new UncheckedProc<>(proc).exec(ipt));
     }
 
     /**
@@ -43,11 +41,9 @@ public final class CallableOf<T> implements Callable<T> {
      * @since 0.11
      */
     public CallableOf(final Scalar<?> scalar) {
-        this(
-            () -> {
-                new Unchecked<>(scalar).value();
-            }
-        );
+        this(() -> {
+            new Unchecked<>(scalar).value();
+        });
     }
 
     /**
@@ -56,12 +52,10 @@ public final class CallableOf<T> implements Callable<T> {
      * @since 0.53
      */
     public CallableOf(final Runnable runnable) {
-        this(
-            () -> {
-                runnable.run();
-                return null;
-            }
-        );
+        this(() -> {
+            runnable.run();
+            return null;
+        });
     }
 
     /**
@@ -75,6 +69,6 @@ public final class CallableOf<T> implements Callable<T> {
 
     @Override
     public T call() throws Exception {
-        return this.callable.call();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

@@ -40,28 +40,26 @@ public final class ComparableText implements Text, Comparable<ComparableText> {
 
     @Override
     public String asString() throws Exception {
-        return this.origin.asString();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public int compareTo(final ComparableText other) {
-        return new Unchecked<>(
-            () -> this.asString().compareTo(other.asString())
-        ).value();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public boolean equals(final Object obj) {
-        return this == obj || this.origin.equals(obj);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public int hashCode() {
-        return this.origin.hashCode();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String toString() {
-        return this.origin.toString();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

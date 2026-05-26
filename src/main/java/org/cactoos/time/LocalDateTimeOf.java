@@ -44,8 +44,7 @@ public final class LocalDateTimeOf implements Scalar<LocalDateTime> {
      * @param date The date to parse
      * @param formatter The formatter to use
      */
-    public LocalDateTimeOf(final CharSequence date,
-        final DateTimeFormatter formatter) {
+    public LocalDateTimeOf(final CharSequence date, final DateTimeFormatter formatter) {
         this(date, () -> formatter);
     }
 
@@ -54,15 +53,12 @@ public final class LocalDateTimeOf implements Scalar<LocalDateTime> {
      * @param date The date to parse
      * @param fmt The formatter, deferred
      */
-    private LocalDateTimeOf(final CharSequence date,
-        final Scalar<DateTimeFormatter> fmt) {
-        this.parsed = new Unchecked<>(
-            () -> LocalDateTime.from(fmt.value().parse(date))
-        );
+    private LocalDateTimeOf(final CharSequence date, final Scalar<DateTimeFormatter> fmt) {
+        this.parsed = new Unchecked<>(() -> LocalDateTime.from(fmt.value().parse(date)));
     }
 
     @Override
     public LocalDateTime value() {
-        return this.parsed.value();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

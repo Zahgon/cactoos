@@ -33,8 +33,6 @@ public final class UncheckedFunc<X, Y> implements Func<X, Y> {
 
     @Override
     public Y apply(final X input) {
-        return new Unchecked<>(
-            () -> this.func.apply(input)
-        ).value();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

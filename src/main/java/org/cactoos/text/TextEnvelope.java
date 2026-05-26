@@ -28,21 +28,21 @@ public abstract class TextEnvelope implements Text {
 
     @Override
     public final String asString() throws Exception {
-        return this.origin.asString();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final String toString() {
-        return this.origin.toString();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final boolean equals(final Object obj) {
-        return this.origin.equals(obj);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final int hashCode() {
-        return this.origin.hashCode();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

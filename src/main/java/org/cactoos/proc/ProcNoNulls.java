@@ -28,16 +28,6 @@ public final class ProcNoNulls<X> implements Proc<X> {
 
     @Override
     public void exec(final X input) throws Exception {
-        if (this.origin == null) {
-            throw new IllegalArgumentException(
-                "NULL instead of a valid procedure"
-            );
-        }
-        if (input == null) {
-            throw new IllegalArgumentException(
-                "NULL instead of a valid input"
-            );
-        }
-        this.origin.exec(input);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

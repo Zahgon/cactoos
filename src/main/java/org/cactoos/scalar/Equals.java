@@ -54,6 +54,6 @@ public final class Equals<R, T extends Comparable<R>> implements Scalar<Boolean>
 
     @Override
     public Boolean value() throws Exception {
-        return this.first.value().compareTo(this.second.value()) == 0;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

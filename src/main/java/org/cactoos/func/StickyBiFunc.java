@@ -67,13 +67,6 @@ public final class StickyBiFunc<X, Y, Z> implements BiFunc<X, Y, Z> {
 
     @Override
     public Z apply(final X first, final Y second) throws Exception {
-        final Map.Entry<X, Y> key = new MapEntry<>(first, second);
-        while (this.cache.size() > this.size) {
-            this.cache.remove(this.cache.keySet().iterator().next());
-        }
-        if (!this.cache.containsKey(key)) {
-            this.cache.put(key, this.func.apply(first, second));
-        }
-        return this.cache.get(key);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

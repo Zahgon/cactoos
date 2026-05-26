@@ -38,12 +38,6 @@ public final class CheckedProc<X, E extends Exception> implements Proc<X> {
 
     @Override
     public void exec(final X input) throws E {
-        new Checked<>(
-            () -> {
-                this.origin.exec(input);
-                return true;
-            },
-            this.func
-        ).value();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

@@ -46,12 +46,9 @@ public final class UncheckedText implements Text {
      */
     @SuppressWarnings("PMD.AvoidThrowingRawExceptionTypes")
     public UncheckedText(final Text txt) {
-        this(
-            txt,
-            error -> {
-                throw new RuntimeException(error);
-            }
-        );
+        this(txt, error -> {
+            throw new RuntimeException(error);
+        });
     }
 
     /**
@@ -68,39 +65,22 @@ public final class UncheckedText implements Text {
     @Override
     @SuppressWarnings("PMD.AvoidCatchingGenericException")
     public String asString() {
-        String txt;
-        try {
-            txt = this.text.asString();
-            // @checkstyle IllegalCatchCheck (1 line)
-        } catch (final Exception ex) {
-            txt = new UncheckedFunc<>(this.fallback).apply(ex);
-        }
-        return txt;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String toString() {
-        return this.asString();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     @SuppressFBWarnings("EQ_UNUSUAL")
     public boolean equals(final Object obj) {
-        return new Unchecked<>(
-            new Or(
-                () -> this == obj,
-                new And(
-                    () -> obj instanceof Text,
-                    () -> this.asString().equals(
-                        Text.class.cast(obj).asString()
-                    )
-                )
-            )
-        ).value();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public int hashCode() {
-        return this.asString().hashCode();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

@@ -44,12 +44,9 @@ public final class IoCheckedText implements Text {
      */
     @SuppressWarnings("PMD.AvoidThrowingRawExceptionTypes")
     public IoCheckedText(final Text txt) {
-        this(
-            txt,
-            error -> {
-                throw new RuntimeException(error);
-            }
-        );
+        this(txt, error -> {
+            throw new RuntimeException(error);
+        });
     }
 
     /**
@@ -66,30 +63,21 @@ public final class IoCheckedText implements Text {
     @Override
     @SuppressWarnings("PMD.AvoidCatchingGenericException")
     public String asString() throws IOException {
-        String txt;
-        try {
-            txt = this.text.asString();
-        } catch (final IOException ex) {
-            throw ex;
-            // @checkstyle IllegalCatchCheck (1 line)
-        } catch (final Exception ex) {
-            txt = new UncheckedFunc<>(this.fallback).apply(ex);
-        }
-        return txt;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String toString() {
-        return new UncheckedText(this).toString();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public boolean equals(final Object obj) {
-        return new UncheckedText(this).equals(obj);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public int hashCode() {
-        return this.toString().hashCode();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

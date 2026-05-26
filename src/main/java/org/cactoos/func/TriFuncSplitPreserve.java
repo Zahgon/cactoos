@@ -2,7 +2,6 @@
  * SPDX-FileCopyrightText: Copyright (c) 2017-2026 Yegor Bugayenko
  * SPDX-License-Identifier: MIT
  */
-
 package org.cactoos.func;
 
 import java.util.ArrayList;
@@ -25,34 +24,10 @@ import org.cactoos.TriFunc;
  *
  * @since 0.0
  */
-public final class TriFuncSplitPreserve
-    implements TriFunc
-        <String, String, Integer, Collection<String>> {
+public final class TriFuncSplitPreserve implements TriFunc<String, String, Integer, Collection<String>> {
 
     @Override
-    public Collection<String> apply(
-        final String str,
-        final String regex,
-        final Integer lmt
-    ) {
-        final List<String> ret = new ArrayList<>(0);
-        int start = 0;
-        int pos = str.indexOf(regex);
-        while (pos >= start) {
-            if (lmt > 0 && ret.size() == lmt || regex.isEmpty()) {
-                break;
-            }
-            ret.add(str.substring(start, pos));
-            start = pos + regex.length();
-            pos = str.indexOf(regex, start);
-        }
-        if (lmt <= 0 || ret.size() < lmt || regex.isEmpty()) {
-            if (start < str.length()) {
-                ret.add(str.substring(start));
-            } else if (start == str.length()) {
-                ret.add("");
-            }
-        }
-        return ret;
+    public Collection<String> apply(final String str, final String regex, final Integer lmt) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

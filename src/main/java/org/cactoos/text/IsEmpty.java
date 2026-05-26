@@ -29,6 +29,6 @@ public final class IsEmpty implements Scalar<Boolean> {
 
     @Override
     public Boolean value() throws Exception {
-        return this.txt.asString().isEmpty();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

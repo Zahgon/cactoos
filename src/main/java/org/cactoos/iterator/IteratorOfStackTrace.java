@@ -31,15 +31,11 @@ public final class IteratorOfStackTrace implements Iterator<Throwable> {
 
     @Override
     public boolean hasNext() {
-        return this.exception.getCause() != null;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public Throwable next() {
-        if (this.hasNext()) {
-            this.exception = this.exception.getCause();
-            return this.exception;
-        }
-        throw new NoSuchElementException("The iterator doesn't have item");
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

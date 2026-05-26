@@ -35,6 +35,6 @@ public final class IoCheckedFunc<X, Y> implements Func<X, Y> {
 
     @Override
     public Y apply(final X input) throws IOException {
-        return new IoChecked<>(() -> this.func.apply(input)).value();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

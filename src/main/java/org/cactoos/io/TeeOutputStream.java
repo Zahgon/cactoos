@@ -40,47 +40,26 @@ public final class TeeOutputStream extends OutputStream {
 
     @Override
     public void write(final int data) throws IOException {
-        try {
-            this.target.write(data);
-        } finally {
-            this.copy.write(data);
-        }
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void write(final byte[] buf) throws IOException {
-        try {
-            this.target.write(buf);
-        } finally {
-            this.copy.write(buf);
-        }
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
-    public void write(final byte[] buf, final int off, final int len)
-        throws IOException {
-        try {
-            this.target.write(buf, off, len);
-        } finally {
-            this.copy.write(buf, off, len);
-        }
+    public void write(final byte[] buf, final int off, final int len) throws IOException {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void flush() throws IOException {
-        try {
-            this.target.flush();
-        } finally {
-            this.copy.flush();
-        }
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void close() throws IOException {
-        try {
-            this.target.close();
-        } finally {
-            this.copy.close();
-        }
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

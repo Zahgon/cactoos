@@ -39,16 +39,11 @@ public final class IteratorOfDoubles implements Iterator<Double> {
 
     @Override
     public boolean hasNext() {
-        return this.position.intValue() < this.items.length;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public Double next() {
-        if (!this.hasNext()) {
-            throw new NoSuchElementException(
-                "The iterator doesn't have any more items"
-            );
-        }
-        return this.items[this.position.getAndIncrement()];
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

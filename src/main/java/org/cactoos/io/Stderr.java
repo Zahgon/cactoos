@@ -18,6 +18,6 @@ public final class Stderr implements Output {
 
     @Override
     public OutputStream stream() {
-        return System.err;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

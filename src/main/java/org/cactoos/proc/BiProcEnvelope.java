@@ -32,6 +32,6 @@ public abstract class BiProcEnvelope<X, Y> implements BiProc<X, Y> {
 
     @Override
     public final void exec(final X first, final Y second) throws Exception {
-        this.origin.exec(first, second);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

@@ -52,8 +52,7 @@ public final class InputWithFallback implements Input {
      * @param input Main input
      * @param alt Alternative
      */
-    public InputWithFallback(final Input input,
-        final Func<? super IOException, ? extends Input> alt) {
+    public InputWithFallback(final Input input, final Func<? super IOException, ? extends Input> alt) {
         this(input, new IoCheckedFunc<>(alt));
     }
 
@@ -62,20 +61,13 @@ public final class InputWithFallback implements Input {
      * @param input Main input
      * @param alt Alternative
      */
-    public InputWithFallback(final Input input,
-        final IoCheckedFunc<? super IOException, ? extends Input> alt) {
+    public InputWithFallback(final Input input, final IoCheckedFunc<? super IOException, ? extends Input> alt) {
         this.main = input;
         this.alternative = alt;
     }
 
     @Override
     public InputStream stream() throws Exception {
-        InputStream stream;
-        try {
-            stream = this.main.stream();
-        } catch (final IOException ex) {
-            stream = this.alternative.apply(ex).stream();
-        }
-        return stream;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

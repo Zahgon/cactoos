@@ -33,9 +33,6 @@ public final class IoCheckedProc<X> implements Proc<X> {
 
     @Override
     public void exec(final X input) throws IOException {
-        new CheckedProc<>(
-            this.proc,
-            IOException::new
-        ).exec(input);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

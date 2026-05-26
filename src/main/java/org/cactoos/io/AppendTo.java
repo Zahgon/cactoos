@@ -53,8 +53,6 @@ public final class AppendTo implements Output {
 
     @Override
     public OutputStream stream() throws Exception {
-        return Files.newOutputStream(
-            new Unchecked<>(this.source).value(), StandardOpenOption.APPEND
-        );
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

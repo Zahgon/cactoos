@@ -34,8 +34,6 @@ public final class UncheckedBiFunc<X, Y, Z> implements BiFunc<X, Y, Z> {
 
     @Override
     public Z apply(final X first, final Y second) {
-        return new Unchecked<>(
-            () -> this.func.apply(first, second)
-        ).value();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

@@ -47,8 +47,6 @@ public final class SyncInput implements Input {
 
     @Override
     public InputStream stream() throws Exception {
-        synchronized (this.lock) {
-            return this.origin.stream();
-        }
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

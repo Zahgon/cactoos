@@ -33,10 +33,6 @@ public final class UncheckedProc<X> implements Proc<X> {
 
     @Override
     public void exec(final X input) {
-        try {
-            new IoCheckedProc<>(this.proc).exec(input);
-        } catch (final IOException ex) {
-            throw new UncheckedIOException(ex);
-        }
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

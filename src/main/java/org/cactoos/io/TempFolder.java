@@ -47,21 +47,7 @@ public final class TempFolder implements Scalar<Path>, Closeable {
      */
     @SuppressWarnings("unchecked")
     public TempFolder() {
-        this(
-            new Concatenated(
-                new TextOf("tmp"),
-                new Randomized(
-                    new org.cactoos.iterable.Joined<>(
-                        new IterableOf<>(
-                            new RangeOf<>('0', '9', ch -> (char) (ch + 1)),
-                            new RangeOf<>('A', 'Z', ch -> (char) (ch + 1)),
-                            new RangeOf<>('a', 'z', ch -> (char) (ch + 1))
-                        )
-                    ),
-                    () -> 5
-                )
-            )
-        );
+        this(new Concatenated(new TextOf("tmp"), new Randomized(new org.cactoos.iterable.Joined<>(new IterableOf<>(new RangeOf<>('0', '9', ch -> (char) (ch + 1)), new RangeOf<>('A', 'Z', ch -> (char) (ch + 1)), new RangeOf<>('a', 'z', ch -> (char) (ch + 1)))), () -> 5)));
     }
 
     /**
@@ -81,19 +67,7 @@ public final class TempFolder implements Scalar<Path>, Closeable {
      * @since 1.0
      */
     public TempFolder(final Text path) {
-        this(
-            new Sticky<>(
-                () -> Files.createDirectory(
-                    Paths.get(
-                        new Joined(
-                            File.separator,
-                            System.getProperty("java.io.tmpdir"),
-                            path.asString()
-                        ).asString()
-                    )
-                )
-            )
-        );
+        this(new Sticky<>(() -> Files.createDirectory(Paths.get(new Joined(File.separator, System.getProperty("java.io.tmpdir"), path.asString()).asString()))));
     }
 
     /**
@@ -107,22 +81,11 @@ public final class TempFolder implements Scalar<Path>, Closeable {
 
     @Override
     public Path value() throws Exception {
-        return this.folder.value();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void close() throws IOException {
-        new IoCheckedProc<>(
-            new ForEach<Path>(
-                path -> path.toFile().delete()
-            )
-        ).exec(
-            new Sorted<>(
-                Comparator.reverseOrder(),
-                new Directory(
-                    new IoChecked<>(this).value()
-                )
-            )
-        );
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

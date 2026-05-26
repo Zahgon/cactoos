@@ -46,6 +46,6 @@ public final class BoolOf implements Scalar<Boolean> {
 
     @Override
     public Boolean value() throws Exception {
-        return Boolean.valueOf(this.origin.asString());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

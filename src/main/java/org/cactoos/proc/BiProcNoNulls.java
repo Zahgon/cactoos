@@ -29,21 +29,6 @@ public final class BiProcNoNulls<X, Y> implements BiProc<X, Y> {
 
     @Override
     public void exec(final X first, final Y second) throws Exception {
-        if (this.origin == null) {
-            throw new IllegalArgumentException(
-                "NULL instead of a valid function"
-            );
-        }
-        if (first == null) {
-            throw new IllegalArgumentException(
-                "NULL instead of a valid first argument"
-            );
-        }
-        if (second == null) {
-            throw new IllegalArgumentException(
-                "NULL instead of a valid second argument"
-            );
-        }
-        this.origin.exec(first, second);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

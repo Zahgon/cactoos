@@ -18,6 +18,6 @@ public final class Stdin implements Input {
 
     @Override
     public InputStream stream() {
-        return System.in;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

@@ -62,60 +62,23 @@ public final class IterableOf<X> implements Iterable<X> {
     @SuppressWarnings("unchecked")
     @Override
     public Iterator<X> iterator() {
-        return (Iterator<X>) new Unchecked<>(this.itr).value();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     @SuppressFBWarnings("EQ_UNUSUAL")
     @SuppressWarnings("unchecked")
     public boolean equals(final Object other) {
-        return new Unchecked<>(
-            new Or(
-                () -> other == this,
-                new And(
-                    () -> other != null,
-                    () -> Iterable.class.isAssignableFrom(other.getClass()),
-                    () -> new ScalarWithFallback<>(
-                        new And(
-                            (X value) -> true,
-                            new Matched<>(
-                                this,
-                                (Iterable<X>) other
-                            )
-                        ),
-                        new org.cactoos.iterable.IterableOf<>(
-                            new Fallback.From<>(
-                                IllegalStateException.class,
-                                ex -> false
-                            ),
-                            new Fallback.From<>(
-                                NoSuchElementException.class,
-                                ex -> false
-                            )
-                        )
-                    ).value()
-                )
-            )
-        ).value();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public int hashCode() {
-        return new Unchecked<>(
-            new HashCode(42, 37, this)
-        ).value();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String toString() {
-        return new UncheckedText(
-            new Joined(
-                ", ",
-                new Mapped<>(
-                    Object::toString,
-                    this
-                )
-            )
-        ).asString();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

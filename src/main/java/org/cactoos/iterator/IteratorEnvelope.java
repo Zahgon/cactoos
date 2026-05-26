@@ -32,36 +32,36 @@ public abstract class IteratorEnvelope<X> implements Iterator<X> {
 
     @Override
     public final boolean hasNext() {
-        return this.wrapped.hasNext();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final X next() {
-        return this.wrapped.next();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final void forEachRemaining(final Consumer<? super X> action) {
-        this.wrapped.forEachRemaining(action);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final void remove() {
-        this.wrapped.remove();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final String toString() {
-        return this.wrapped.toString();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final boolean equals(final Object obj) {
-        return this.wrapped.equals(obj);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final int hashCode() {
-        return this.wrapped.hashCode();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

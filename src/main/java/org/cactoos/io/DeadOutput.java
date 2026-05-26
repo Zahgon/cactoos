@@ -18,6 +18,6 @@ public final class DeadOutput implements Output {
 
     @Override
     public OutputStream stream() {
-        return new DeadOutputStream();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

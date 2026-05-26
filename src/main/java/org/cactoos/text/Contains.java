@@ -62,6 +62,6 @@ public final class Contains implements Scalar<Boolean> {
 
     @Override
     public Boolean value() throws Exception {
-        return this.origin.asString().contains(this.other.asString());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

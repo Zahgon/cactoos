@@ -56,10 +56,7 @@ public final class Filtered<X> implements Iterator<X> {
      * @param fnc Predicate
      * @param src Source iterable
      */
-    public Filtered(
-        final Func<? super X, Boolean> fnc,
-        final Iterator<? extends X> src
-    ) {
+    public Filtered(final Func<? super X, Boolean> fnc, final Iterator<? extends X> src) {
         this(src, input -> () -> fnc.apply(input));
     }
 
@@ -68,10 +65,7 @@ public final class Filtered<X> implements Iterator<X> {
      * @param src Source iterable
      * @param fnc Predicate
      */
-    public Filtered(
-        final Iterator<? extends X> src,
-        final Func<? super X, Scalar<Boolean>> fnc
-    ) {
+    public Filtered(final Iterator<? extends X> src, final Func<? super X, Scalar<Boolean>> fnc) {
         this.iterator = src;
         this.func = fnc;
         this.buffer = new LinkedList<>();
@@ -79,34 +73,16 @@ public final class Filtered<X> implements Iterator<X> {
 
     @Override
     public boolean hasNext() {
-        if (this.buffer.isEmpty()) {
-            while (this.iterator.hasNext()) {
-                final X object = this.iterator.next();
-                if (new Unchecked<>(
-                    new UncheckedFunc<>(this.func).apply(object)
-                ).value()) {
-                    this.buffer.add(object);
-                    break;
-                }
-            }
-        }
-        return !this.buffer.isEmpty();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public X next() {
-        if (!this.hasNext()) {
-            throw new NoSuchElementException(
-                "No more elements that fit the condition"
-            );
-        }
-        return this.buffer.poll();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void remove() {
-        throw new UnsupportedOperationException(
-            "#remove() is not supported"
-        );
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

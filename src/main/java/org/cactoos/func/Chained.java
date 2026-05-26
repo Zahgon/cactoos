@@ -46,8 +46,7 @@ public final class Chained<X, Y, Z> implements Func<X, Z> {
      * @param list Functions
      * @param atr After function
      */
-    public Chained(final Func<X, Y> bfr, final Iterable<Func<Y, Y>> list,
-        final Func<Y, Z> atr) {
+    public Chained(final Func<X, Y> bfr, final Iterable<Func<Y, Y>> list, final Func<Y, Z> atr) {
         this.before = bfr;
         this.funcs = list;
         this.after = atr;
@@ -55,10 +54,6 @@ public final class Chained<X, Y, Z> implements Func<X, Z> {
 
     @Override
     public Z apply(final X input) throws Exception {
-        Y temp = this.before.apply(input);
-        for (final Func<Y, Y> func : this.funcs) {
-            temp = func.apply(temp);
-        }
-        return this.after.apply(temp);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

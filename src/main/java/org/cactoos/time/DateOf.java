@@ -56,21 +56,11 @@ public final class DateOf implements Scalar<Date> {
      * @param fmt The formatter, deferred
      */
     private DateOf(final CharSequence date, final Scalar<DateTimeFormatter> fmt) {
-        this.parsed = new Unchecked<>(
-            () -> Date.from(
-                LocalDateTime.parse(
-                    date,
-                    new DateTimeFormatterBuilder()
-                        .append(fmt.value())
-                        .parseDefaulting(ChronoField.HOUR_OF_DAY, 0L)
-                        .toFormatter()
-                ).toInstant(ZoneOffset.UTC)
-            )
-        );
+        this.parsed = new Unchecked<>(() -> Date.from(LocalDateTime.parse(date, new DateTimeFormatterBuilder().append(fmt.value()).parseDefaulting(ChronoField.HOUR_OF_DAY, 0L).toFormatter()).toInstant(ZoneOffset.UTC)));
     }
 
     @Override
     public Date value() {
-        return this.parsed.value();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

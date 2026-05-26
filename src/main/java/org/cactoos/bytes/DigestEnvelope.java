@@ -52,11 +52,7 @@ public abstract class DigestEnvelope implements Bytes {
      * @param max Buffer size
      * @param algrthm The algorithm
      */
-    public DigestEnvelope(
-        final Input input,
-        final int max,
-        final String algrthm
-    ) {
+    public DigestEnvelope(final Input input, final int max, final String algrthm) {
         this.source = input;
         this.size = max;
         this.algorithm = algrthm;
@@ -64,19 +60,6 @@ public abstract class DigestEnvelope implements Bytes {
 
     @Override
     public byte[] asBytes() throws Exception {
-        try (InputStream stream = this.source.stream()) {
-            final MessageDigest msg = MessageDigest.getInstance(this.algorithm);
-            final byte[] buf = new byte[this.size];
-            while (true) {
-                final int len = stream.read(buf);
-                if (len < 0) {
-                    break;
-                }
-                msg.update(buf, 0, len);
-            }
-            return msg.digest();
-        } catch (final NoSuchAlgorithmException ex) {
-            throw new IOException(ex);
-        }
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

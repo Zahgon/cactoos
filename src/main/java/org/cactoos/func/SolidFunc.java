@@ -42,6 +42,6 @@ public final class SolidFunc<X, Y> implements Func<X, Y> {
 
     @Override
     public Y apply(final X input) throws Exception {
-        return this.func.apply(input);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

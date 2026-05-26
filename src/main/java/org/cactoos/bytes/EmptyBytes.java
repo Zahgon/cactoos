@@ -22,6 +22,6 @@ public final class EmptyBytes implements Bytes {
 
     @Override
     public byte[] asBytes() {
-        return EmptyBytes.EMPTY;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

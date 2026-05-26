@@ -36,6 +36,6 @@ public final class Not implements Scalar<Boolean> {
 
     @Override
     public Boolean value() throws Exception {
-        return !this.origin.value();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

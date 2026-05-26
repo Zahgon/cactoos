@@ -51,16 +51,11 @@ public final class Endless<T> implements Iterator<T> {
 
     @Override
     public boolean hasNext() {
-        return this.origin.value() != null;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public T next() {
-        if (!this.hasNext()) {
-            throw new NoSuchElementException(
-                "The iterator doesn't have item"
-            );
-        }
-        return this.origin.value();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

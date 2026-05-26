@@ -28,6 +28,6 @@ public abstract class RunnableEnvelope implements Runnable {
 
     @Override
     public final void run() {
-        this.origin.run();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

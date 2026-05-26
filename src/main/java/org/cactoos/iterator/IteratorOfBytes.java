@@ -77,16 +77,11 @@ public final class IteratorOfBytes implements Iterator<Byte> {
 
     @Override
     public boolean hasNext() {
-        return this.position.intValue() < this.items.value().length;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public Byte next() {
-        if (!this.hasNext()) {
-            throw new NoSuchElementException(
-                "The iterator doesn't have any more items"
-            );
-        }
-        return this.items.value()[this.position.getAndIncrement()];
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

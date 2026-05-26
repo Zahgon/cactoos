@@ -39,16 +39,11 @@ public final class IteratorOfLongs implements Iterator<Long> {
 
     @Override
     public boolean hasNext() {
-        return this.position.intValue() < this.items.length;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public Long next() {
-        if (!this.hasNext()) {
-            throw new NoSuchElementException(
-                "The iterator doesn't have any more items"
-            );
-        }
-        return this.items[this.position.getAndIncrement()];
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

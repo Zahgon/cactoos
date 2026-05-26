@@ -40,9 +40,6 @@ public final class Repeated<X> implements Scalar<X> {
 
     @Override
     public X value() throws Exception {
-        return new org.cactoos.func.Repeated<>(
-            new FuncOf<>(this.scalar),
-            this.times
-        ).apply(true);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

@@ -30,27 +30,6 @@ public final class BiFuncNoNulls<X, Y, Z> implements BiFunc<X, Y, Z> {
 
     @Override
     public Z apply(final X first, final Y second) throws Exception {
-        if (this.origin == null) {
-            throw new IllegalArgumentException(
-                "NULL instead of a valid function"
-            );
-        }
-        if (first == null) {
-            throw new IllegalArgumentException(
-                "NULL instead of a valid first argument"
-            );
-        }
-        if (second == null) {
-            throw new IllegalArgumentException(
-                "NULL instead of a valid second argument"
-            );
-        }
-        final Z result = this.origin.apply(first, second);
-        if (result == null) {
-            throw new IllegalStateException(
-                "NULL instead of a valid result"
-            );
-        }
-        return result;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

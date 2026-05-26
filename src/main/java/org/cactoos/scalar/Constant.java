@@ -48,6 +48,6 @@ public final class Constant<T> implements Scalar<T> {
 
     @Override
     public T value() {
-        return this.val;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

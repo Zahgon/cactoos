@@ -71,11 +71,7 @@ public final class LoggingInputStream extends InputStream {
      * @param src The name of source data
      * @param lgr The message logger
      */
-    public LoggingInputStream(
-        final InputStream input,
-        final String src,
-        final Logger lgr
-    ) {
+    public LoggingInputStream(final InputStream input, final String src, final Logger lgr) {
         this(input, src, () -> lgr);
     }
 
@@ -86,173 +82,68 @@ public final class LoggingInputStream extends InputStream {
      * @param lgr The message logger, deferred
      * @checkstyle ParameterNumberCheck (15 lines)
      */
-    private LoggingInputStream(
-        final InputStream input,
-        final String src,
-        final org.cactoos.Scalar<Logger> lgr
-    ) {
+    private LoggingInputStream(final InputStream input, final String src, final org.cactoos.Scalar<Logger> lgr) {
         super();
         this.origin = input;
         this.source = src;
         this.logger = new Unchecked<>(new Sticky<>(lgr));
-        this.level = new Unchecked<>(
-            new Sticky<>(
-                () -> {
-                    Level lvl = this.logger.value().getLevel();
-                    if (lvl == null) {
-                        Logger parent = this.logger.value();
-                        while (lvl == null) {
-                            parent = parent.getParent();
-                            lvl = parent.getLevel();
-                        }
-                    }
-                    return lvl;
+        this.level = new Unchecked<>(new Sticky<>(() -> {
+            Level lvl = this.logger.value().getLevel();
+            if (lvl == null) {
+                Logger parent = this.logger.value();
+                while (lvl == null) {
+                    parent = parent.getParent();
+                    lvl = parent.getLevel();
                 }
-            )
-        );
+            }
+            return lvl;
+        }));
         this.bytes = new AtomicLong();
         this.time = new AtomicLong();
     }
 
     @Override
     public int read() throws IOException {
-        final byte[] buf = new byte[1];
-        final int size;
-        if (this.read(buf) == -1) {
-            size = -1;
-        } else {
-            size = Byte.toUnsignedInt(buf[0]);
-        }
-        return size;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public int read(final byte[] buf) throws IOException {
-        return this.read(buf, 0, buf.length);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
-    public int read(final byte[] buf, final int offset, final int len)
-        throws IOException {
-        final Instant start = Instant.now();
-        final int byts = this.origin.read(buf, offset, len);
-        if (byts > 0) {
-            this.bytes.getAndAdd((long) byts);
-            this.time.getAndAdd(Duration.between(start, Instant.now()).toMillis());
-        }
-        final UncheckedText msg = new UncheckedText(
-            new FormattedText(
-                "Read %d byte(s) from %s in %dms.",
-                this.bytes.get(),
-                this.source,
-                this.time.get()
-            )
-        );
-        if (byts > 0) {
-            if (!this.level.value().equals(Level.INFO)) {
-                this.logger.value().log(this.level.value(), msg.asString());
-            }
-        } else {
-            if (this.level.value().equals(Level.INFO)) {
-                this.logger.value().info(msg.asString());
-            }
-        }
-        return byts;
+    public int read(final byte[] buf, final int offset, final int len) throws IOException {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public long skip(final long num) throws IOException {
-        final long skipped = this.origin.skip(num);
-        this.logger.value().log(
-            this.level.value(),
-            new UncheckedText(
-                new FormattedText(
-                    "Skipped %d byte(s) from %s.",
-                    skipped,
-                    this.source
-                )
-            ).asString()
-        );
-        return skipped;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public int available() throws IOException {
-        final int avail = this.origin.available();
-        this.logger.value().log(
-            this.level.value(),
-            new UncheckedText(
-                new FormattedText(
-                    "There is(are) %d byte(s) available from %s.",
-                    avail,
-                    this.source
-                )
-            ).asString()
-        );
-        return avail;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void close() throws IOException {
-        this.origin.close();
-        this.logger.value().log(
-            this.level.value(),
-            new UncheckedText(
-                new FormattedText(
-                    "Closed input stream from %s.",
-                    this.source
-                )
-            ).asString()
-        );
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void mark(final int limit) {
-        this.origin.mark(limit);
-        this.logger.value().log(
-            this.level.value(),
-            new UncheckedText(
-                new FormattedText(
-                    "Marked position %d from %s.",
-                    limit,
-                    this.source
-                )
-            ).asString()
-        );
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void reset() throws IOException {
-        this.origin.reset();
-        this.logger.value().log(
-            this.level.value(),
-            new UncheckedText(
-                new FormattedText(
-                    "Reset input stream from %s.",
-                    this.source
-                )
-            ).asString()
-        );
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public boolean markSupported() {
-        final boolean supported = this.origin.markSupported();
-        final String msg;
-        if (supported) {
-            msg = "Mark and reset are supported from %s";
-        } else {
-            msg = "Mark and reset NOT supported from %s";
-        }
-        this.logger.value().log(
-            this.level.value(),
-            new UncheckedText(
-                new FormattedText(
-                    msg,
-                    this.source
-                )
-            ).asString()
-        );
-        return supported;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

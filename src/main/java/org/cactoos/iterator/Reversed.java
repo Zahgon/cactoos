@@ -67,11 +67,11 @@ public final class Reversed<X> implements Iterator<X> {
 
     @Override
     public boolean hasNext() {
-        return this.origin.value().hasPrevious();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public X next() {
-        return this.origin.value().previous();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

@@ -58,11 +58,7 @@ public final class TempFile implements Scalar<Path>, Closeable {
      * @since 1.0
      */
     public TempFile(final String prefix, final String suffix) {
-        this(
-            () -> Paths.get(System.getProperty("java.io.tmpdir")),
-            prefix,
-            suffix
-        );
+        this(() -> Paths.get(System.getProperty("java.io.tmpdir")), prefix, suffix);
     }
 
     /**
@@ -75,11 +71,7 @@ public final class TempFile implements Scalar<Path>, Closeable {
      * @since 1.0
      */
     public TempFile(final Text prefix, final Text suffix) {
-        this(
-            () -> Paths.get(System.getProperty("java.io.tmpdir")),
-            prefix,
-            suffix
-        );
+        this(() -> Paths.get(System.getProperty("java.io.tmpdir")), prefix, suffix);
     }
 
     /**
@@ -89,15 +81,8 @@ public final class TempFile implements Scalar<Path>, Closeable {
      * @param suffix The temp filename's suffix
      * @since 1.0
      */
-    public TempFile(
-        final Scalar<Path> dir,
-        final String prefix,
-        final String suffix) {
-        this(
-            dir,
-            new TextOf(prefix),
-            new TextOf(suffix)
-        );
+    public TempFile(final Scalar<Path> dir, final String prefix, final String suffix) {
+        this(dir, new TextOf(prefix), new TextOf(suffix));
     }
 
     /**
@@ -107,19 +92,8 @@ public final class TempFile implements Scalar<Path>, Closeable {
      * @param suffix The temp filename's suffix
      * @since 1.0
      */
-    public TempFile(
-        final Scalar<Path> dir,
-        final Text prefix,
-        final Text suffix) {
-        this(
-            new Sticky<>(
-                () -> Files.createTempFile(
-                    dir.value(),
-                    prefix.asString(),
-                    suffix.asString()
-                )
-            )
-        );
+    public TempFile(final Scalar<Path> dir, final Text prefix, final Text suffix) {
+        this(new Sticky<>(() -> Files.createTempFile(dir.value(), prefix.asString(), suffix.asString())));
     }
 
     /**
@@ -133,7 +107,7 @@ public final class TempFile implements Scalar<Path>, Closeable {
 
     @Override
     public Path value() throws Exception {
-        return this.file.value();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -143,6 +117,6 @@ public final class TempFile implements Scalar<Path>, Closeable {
      */
     @Override
     public void close() throws IOException {
-        Files.delete(new IoChecked<>(this).value());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

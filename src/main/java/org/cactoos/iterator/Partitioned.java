@@ -39,19 +39,11 @@ public final class Partitioned<T> implements Iterator<List<T>> {
 
     @Override
     public boolean hasNext() {
-        return this.decorated.hasNext();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public List<T> next() {
-        if (!this.hasNext()) {
-            throw new NoSuchElementException("No partition left.");
-        }
-        if (this.size < 1) {
-            throw new IllegalArgumentException("Partition size < 1");
-        }
-        return new Immutable<>(
-            new ListOf<>(new Sliced<>(0, this.size, this.decorated))
-        );
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

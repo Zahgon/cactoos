@@ -15,8 +15,7 @@ import org.cactoos.func.UncheckedFunc;
  * @param <T> Range value type
  * @since 0.50
  */
-public final class
-    RangeOf<T extends Comparable<T>> implements Iterator<T> {
+public final class RangeOf<T extends Comparable<T>> implements Iterator<T> {
 
     /**
      * Incrementor.
@@ -39,8 +38,7 @@ public final class
      * @param max End of the range
      * @param incrementor The {@link Func} to process for the next value
      */
-    public RangeOf(final T min, final T max,
-        final Func<? super T, ? extends T> incrementor) {
+    public RangeOf(final T min, final T max, final Func<? super T, ? extends T> incrementor) {
         this.inc = new UncheckedFunc<>(incrementor);
         this.value = new AtomicReference<>(min);
         this.max = max;
@@ -48,16 +46,11 @@ public final class
 
     @Override
     public boolean hasNext() {
-        return this.value.get().compareTo(this.max) < 1;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public T next() {
-        if (!this.hasNext()) {
-            throw new NoSuchElementException();
-        }
-        final T result = this.value.get();
-        this.value.set(this.inc.apply(result));
-        return result;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

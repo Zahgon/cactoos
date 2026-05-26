@@ -34,30 +34,22 @@ public final class TextOfString implements Text {
 
     @Override
     public String asString() {
-        return this.input;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String toString() {
-        return this.input;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public int hashCode() {
-        return this.input.hashCode();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     @SuppressFBWarnings("EQ_UNUSUAL")
     public boolean equals(final Object obj) {
-        return new Unchecked<>(
-            new Or(
-                () -> this == obj,
-                new And(
-                    () -> obj instanceof Text,
-                    () -> this.input.equals(new UncheckedText((Text) obj).asString())
-                )
-            )
-        ).value();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

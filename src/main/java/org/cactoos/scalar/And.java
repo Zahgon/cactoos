@@ -69,16 +69,8 @@ public final class And implements Scalar<Boolean> {
      * @param <X> Type of items in the iterable
      * @since 0.24
      */
-    public <X> And(
-        final Func<? super X, Boolean> func,
-        final Iterable<? extends X> src
-    ) {
-        this(
-            new Mapped<>(
-                item -> new ScalarOf<>(() -> func.apply(item)),
-                src
-            )
-        );
+    public <X> And(final Func<? super X, Boolean> func, final Iterable<? extends X> src) {
+        this(new Mapped<>(item -> new ScalarOf<>(() -> func.apply(item)), src));
     }
 
     /**
@@ -101,12 +93,7 @@ public final class And implements Scalar<Boolean> {
      * @since 0.49
      */
     public <X> And(final X subject, final Iterable<? extends Func<? super X, Boolean>> conditions) {
-        this(
-            new Mapped<>(
-                item -> new ScalarOf<>(() -> item.apply(subject)),
-                conditions
-            )
-        );
+        this(new Mapped<>(item -> new ScalarOf<>(() -> item.apply(subject)), conditions));
     }
 
     /**
@@ -128,13 +115,6 @@ public final class And implements Scalar<Boolean> {
 
     @Override
     public Boolean value() throws Exception {
-        boolean result = true;
-        for (final Scalar<Boolean> item : this.origin) {
-            if (!item.value()) {
-                result = false;
-                break;
-            }
-        }
-        return result;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

@@ -32,6 +32,6 @@ public final class CloseShieldInput implements Input {
 
     @Override
     public InputStream stream() throws Exception {
-        return new CloseShieldInputStream(this.origin.stream());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

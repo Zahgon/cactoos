@@ -43,14 +43,12 @@ public final class OutputTo implements Output {
      */
     @SuppressWarnings("PMD.AvoidFileStream")
     public OutputTo(final File file, final boolean mkdirs) {
-        this(
-            () -> {
-                if (mkdirs) {
-                    file.getAbsoluteFile().getParentFile().mkdirs();
-                }
-                return new FileOutputStream(file);
+        this(() -> {
+            if (mkdirs) {
+                file.getAbsoluteFile().getParentFile().mkdirs();
             }
-        );
+            return new FileOutputStream(file);
+        });
     }
 
     /**
@@ -69,15 +67,13 @@ public final class OutputTo implements Output {
      */
     @SuppressWarnings("PMD.AvoidFileStream")
     public OutputTo(final Path path, final boolean mkdirs) {
-        this(
-            () -> {
-                final File file = path.toFile();
-                if (mkdirs) {
-                    file.getParentFile().mkdirs();
-                }
-                return new FileOutputStream(file);
+        this(() -> {
+            final File file = path.toFile();
+            if (mkdirs) {
+                file.getParentFile().mkdirs();
             }
-        );
+            return new FileOutputStream(file);
+        });
     }
 
     /**
@@ -164,6 +160,6 @@ public final class OutputTo implements Output {
 
     @Override
     public OutputStream stream() throws Exception {
-        return this.origin.stream();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

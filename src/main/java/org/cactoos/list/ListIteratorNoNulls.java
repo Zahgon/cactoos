@@ -2,7 +2,6 @@
  * SPDX-FileCopyrightText: Copyright (c) 2017-2026 Yegor Bugayenko
  * SPDX-License-Identifier: MIT
  */
-
 package org.cactoos.list;
 
 import java.util.ListIterator;
@@ -32,64 +31,46 @@ public final class ListIteratorNoNulls<T> implements ListIterator<T> {
 
     @Override
     public boolean hasNext() {
-        return this.listiterator.hasNext();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public T next() {
-        final T next = this.listiterator.next();
-        if (next == null) {
-            throw new IllegalStateException("Next item is NULL");
-        }
-        return next;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public boolean hasPrevious() {
-        return this.listiterator.hasPrevious();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public T previous() {
-        final T prev = this.listiterator.previous();
-        if (prev == null) {
-            throw new IllegalStateException("Previous item is NULL");
-        }
-        return prev;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public int nextIndex() {
-        return this.listiterator.nextIndex();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public int previousIndex() {
-        return this.listiterator.previousIndex();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void remove() {
-        this.listiterator.remove();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void set(final T item) {
-        if (item == null) {
-            throw new IllegalArgumentException(
-                "Item can't be NULL in #set(T)"
-            );
-        }
-        this.listiterator.set(item);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void add(final T item) {
-        if (item == null) {
-            throw new IllegalArgumentException(
-                "Item can't be NULL in #add(T)"
-            );
-        }
-        this.listiterator.add(item);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

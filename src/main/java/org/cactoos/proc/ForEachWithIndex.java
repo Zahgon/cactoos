@@ -48,8 +48,6 @@ public final class ForEachWithIndex<X> implements Proc<Iterable<X>> {
 
     @Override
     public void exec(final Iterable<X> input) throws Exception {
-        new AndWithIndex(
-            this.proc, input
-        ).value();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

@@ -66,16 +66,11 @@ public final class IteratorOfChars implements Iterator<Character> {
 
     @Override
     public boolean hasNext() {
-        return this.position.intValue() < this.list.value().length;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public Character next() {
-        if (!this.hasNext()) {
-            throw new NoSuchElementException(
-                "The iterator doesn't have any more items"
-            );
-        }
-        return this.list.value()[this.position.getAndIncrement()];
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

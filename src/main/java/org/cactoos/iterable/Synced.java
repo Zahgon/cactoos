@@ -67,8 +67,6 @@ public final class Synced<X> implements Iterable<X> {
     @SuppressWarnings("unchecked")
     @Override
     public Iterator<X> iterator() {
-        synchronized (this.lock) {
-            return (Iterator<X>) this.origin.iterator();
-        }
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

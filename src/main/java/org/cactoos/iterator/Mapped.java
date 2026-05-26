@@ -27,35 +27,23 @@ public final class Mapped<Y> extends IteratorEnvelope<Y> {
      * @param <X> Type of item
      * @checkstyle AnonInnerLengthCheck (60 lines)
      */
-    public <X> Mapped(
-        final Func<? super X, ? extends Y> func,
-        final Iterator<? extends X> iterator
-    ) {
-        super(
-            new Iterator<Y>() {
+    public <X> Mapped(final Func<? super X, ? extends Y> func, final Iterator<? extends X> iterator) {
+        super(new Iterator<Y>() {
 
-                @Override
-                public boolean hasNext() {
-                    return iterator.hasNext();
-                }
-
-                @Override
-                public Y next() {
-                    if (this.hasNext()) {
-                        return new Unchecked<>(
-                            new org.cactoos.scalar.Mapped<>(
-                                func, iterator::next
-                            )
-                        ).value();
-                    }
-                    throw new NoSuchElementException();
-                }
-
-                @Override
-                public void remove() {
-                    iterator.remove();
-                }
+            @Override
+            public boolean hasNext() {
+                throw new UnsupportedOperationException("STUB: not implemented");
             }
-        );
+
+            @Override
+            public Y next() {
+                throw new UnsupportedOperationException("STUB: not implemented");
+            }
+
+            @Override
+            public void remove() {
+                throw new UnsupportedOperationException("STUB: not implemented");
+            }
+        });
     }
 }

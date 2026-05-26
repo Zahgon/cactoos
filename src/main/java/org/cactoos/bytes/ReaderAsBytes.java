@@ -99,11 +99,7 @@ final class ReaderAsBytes implements Bytes {
      * @param cset Charset, deferred
      * @param max Buffer size
      */
-    private ReaderAsBytes(
-        final Reader rdr,
-        final Scalar<? extends CharSequence> cset,
-        final int max
-    ) {
+    private ReaderAsBytes(final Reader rdr, final Scalar<? extends CharSequence> cset, final int max) {
         this.reader = rdr;
         this.charset = cset;
         this.size = max;
@@ -111,16 +107,6 @@ final class ReaderAsBytes implements Bytes {
 
     @Override
     public byte[] asBytes() throws Exception {
-        final char[] buffer = new char[this.size];
-        final StringBuilder builder = new StringBuilder(this.size);
-        while (true) {
-            final int done = this.reader.read(buffer, 0, buffer.length);
-            if (done < 0) {
-                break;
-            }
-            builder.append(buffer, 0, done);
-        }
-        this.reader.close();
-        return builder.toString().getBytes(this.charset.value().toString());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

@@ -30,6 +30,6 @@ public abstract class BiFuncEnvelope<X, Y, Z> implements BiFunc<X, Y, Z> {
 
     @Override
     public final Z apply(final X first, final Y second) throws Exception {
-        return this.origin.apply(first, second);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

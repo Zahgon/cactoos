@@ -74,20 +74,11 @@ public final class Joined<T> implements Iterator<T> {
 
     @Override
     public boolean hasNext() {
-        this.current.compareAndSet(null, Collections.emptyIterator());
-        while (!this.current.get().hasNext() && this.iters.value().hasNext()) {
-            this.current.set(this.iters.value().next());
-        }
-        return this.current.get().hasNext();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public T next() {
-        if (!this.hasNext()) {
-            throw new NoSuchElementException(
-                "The iterator doesn't have any more items"
-            );
-        }
-        return this.current.get().next();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

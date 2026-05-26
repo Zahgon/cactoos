@@ -17,6 +17,6 @@ public final class DeadOutputStream extends OutputStream {
 
     @Override
     public void write(final int data) {
-        // nothing to do here
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

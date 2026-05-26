@@ -40,11 +40,7 @@ public final class FirstOf<T> implements Scalar<T> {
      * @param fbck Fallback used if no value matches
      */
     public FirstOf(final Iterable<? extends T> src, final T fbck) {
-        this(
-            new FuncOf<>(new True()),
-            src,
-            () -> fbck
-        );
+        this(new FuncOf<>(new True()), src, () -> fbck);
     }
 
     /**
@@ -53,11 +49,7 @@ public final class FirstOf<T> implements Scalar<T> {
      * @param fbck Fallback used if no value matches
      */
     public FirstOf(final Iterable<? extends T> src, final Scalar<? extends T> fbck) {
-        this(
-            new FuncOf<>(new True()),
-            src,
-            fbck
-        );
+        this(new FuncOf<>(new True()), src, fbck);
     }
 
     /**
@@ -66,11 +58,7 @@ public final class FirstOf<T> implements Scalar<T> {
      * @param src Source iterable
      * @param fbck Fallback used if no value matches
      */
-    public FirstOf(
-        final Func<? super T, Boolean> cond,
-        final Iterable<? extends T> src,
-        final Scalar<? extends T> fbck
-    ) {
+    public FirstOf(final Func<? super T, Boolean> cond, final Iterable<? extends T> src, final Scalar<? extends T> fbck) {
         this.condition = cond;
         this.source = src;
         this.fallback = fbck;
@@ -78,10 +66,6 @@ public final class FirstOf<T> implements Scalar<T> {
 
     @Override
     public T value() throws Exception {
-        return new ItemAt<>(
-            0,
-            new FuncOf<>(this.fallback),
-            new Filtered<>(this.condition, this.source)
-        ).value();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

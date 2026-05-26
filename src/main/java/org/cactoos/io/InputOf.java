@@ -42,11 +42,7 @@ public final class InputOf implements Input {
      */
     @SuppressWarnings("PMD.AvoidFileStream")
     public InputOf(final File file) {
-        this(
-            () -> new FileInputStream(
-                new Unchecked<>(() -> file).value()
-            )
-        );
+        this(() -> new FileInputStream(new Unchecked<>(() -> file).value()));
     }
 
     /**
@@ -143,8 +139,7 @@ public final class InputOf implements Input {
      * @param charset Charset
      * @param max Buffer size
      */
-    public InputOf(final Reader rdr, final CharSequence charset,
-        final int max) {
+    public InputOf(final Reader rdr, final CharSequence charset, final int max) {
         this(new BytesOf(rdr, charset, max));
     }
 
@@ -265,11 +260,7 @@ public final class InputOf implements Input {
      * @param src The bytes
      */
     public InputOf(final Bytes src) {
-        this(
-            () -> new IoChecked<InputStream>(
-                () -> new ByteArrayInputStream(src.asBytes())
-            ).value()
-        );
+        this(() -> new IoChecked<InputStream>(() -> new ByteArrayInputStream(src.asBytes())).value());
     }
 
     /**
@@ -290,6 +281,6 @@ public final class InputOf implements Input {
 
     @Override
     public InputStream stream() throws Exception {
-        return this.origin.stream();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

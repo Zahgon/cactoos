@@ -38,9 +38,6 @@ public final class CheckedInput<E extends Exception> implements Input {
 
     @Override
     public InputStream stream() throws E {
-        return new Checked<>(
-            this.origin::stream,
-            this.func
-        ).value();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

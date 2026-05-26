@@ -2,7 +2,6 @@
  * SPDX-FileCopyrightText: Copyright (c) 2017-2026 Yegor Bugayenko
  * SPDX-License-Identifier: MIT
  */
-
 package org.cactoos.scalar;
 
 import org.cactoos.Scalar;
@@ -29,9 +28,7 @@ public final class ThrowsOnFalse implements Scalar<Boolean> {
      * @param message Error Message
      */
     public ThrowsOnFalse(final Scalar<Boolean> sclr, final String message) {
-        this(
-            sclr, () -> new IllegalArgumentException(message)
-        );
+        this(sclr, () -> new IllegalArgumentException(message));
     }
 
     /**
@@ -39,19 +36,13 @@ public final class ThrowsOnFalse implements Scalar<Boolean> {
      * @param sclr Scalar
      * @param exc Exception
      */
-    public ThrowsOnFalse(
-        final Scalar<Boolean> sclr,
-        final Scalar<Exception> exc
-    ) {
+    public ThrowsOnFalse(final Scalar<Boolean> sclr, final Scalar<Exception> exc) {
         this.scalar = sclr;
         this.exception = exc;
     }
 
     @Override
     public Boolean value() throws Exception {
-        if (!this.scalar.value()) {
-            throw this.exception.value();
-        }
-        return true;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

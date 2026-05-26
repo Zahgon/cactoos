@@ -18,6 +18,6 @@ public final class Stdout implements Output {
 
     @Override
     public OutputStream stream() {
-        return System.out;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

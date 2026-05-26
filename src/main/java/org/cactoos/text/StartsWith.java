@@ -65,6 +65,6 @@ public final class StartsWith implements Scalar<Boolean> {
 
     @Override
     public Boolean value() throws Exception {
-        return this.text.asString().startsWith(this.prefix.asString());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

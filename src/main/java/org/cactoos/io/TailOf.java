@@ -57,27 +57,7 @@ public final class TailOf implements Input {
 
     @Override
     public InputStream stream() throws Exception {
-        if (this.max < this.count) {
-            throw new IllegalArgumentException(
-                new FormattedText(
-                    "Can't tail %d bytes if buffer is set to %d",
-                    this.count, this.max
-                ).asString()
-            );
-        }
-        final byte[] buffer = new byte[this.max];
-        final byte[] response = new byte[this.count];
-        int num = 0;
-        try (InputStream strm = this.input.stream()) {
-            for (int read = strm.read(buffer); read > 0; read = strm.read(buffer)) {
-                if (read < this.max && read < this.count) {
-                    num = this.copyPartial(buffer, response, num, read);
-                } else {
-                    num = this.copy(buffer, response, read);
-                }
-            }
-        }
-        return new ByteArrayInputStream(response, 0, num);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -87,11 +67,8 @@ public final class TailOf implements Input {
      * @param read Number of bytes read in buffer
      * @return Number of bytes in the response buffer
      */
-    private int copy(final byte[] buffer, final byte[] response,
-        final int read) {
-        System.arraycopy(
-            buffer, read - this.count, response, 0, this.count
-        );
+    private int copy(final byte[] buffer, final byte[] response, final int read) {
+        System.arraycopy(buffer, read - this.count, response, 0, this.count);
         return new MinOf(this.count, read).intValue();
     }
 
@@ -104,13 +81,10 @@ public final class TailOf implements Input {
      * @return New count of bytes in the response array
      * @checkstyle ParameterNumberCheck (3 lines)
      */
-    private int copyPartial(final byte[] buffer, final byte[] response,
-        final int num, final int read) {
+    private int copyPartial(final byte[] buffer, final byte[] response, final int num, final int read) {
         final int result;
         if (num > 0) {
-            System.arraycopy(
-                response, read, response, 0, this.count - read
-            );
+            System.arraycopy(response, read, response, 0, this.count - read);
             System.arraycopy(buffer, 0, response, this.count - read, read);
             result = this.count;
         } else {

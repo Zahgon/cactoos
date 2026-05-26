@@ -32,11 +32,11 @@ public final class Skipped<T> implements Iterator<T> {
 
     @Override
     public boolean hasNext() {
-        return this.sliced.hasNext();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public T next() {
-        return this.sliced.next();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

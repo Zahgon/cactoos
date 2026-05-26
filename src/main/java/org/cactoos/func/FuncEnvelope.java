@@ -32,6 +32,6 @@ public abstract class FuncEnvelope<X, Y> implements Func<X, Y> {
 
     @Override
     public final Y apply(final X input) throws Exception {
-        return this.func.apply(input);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

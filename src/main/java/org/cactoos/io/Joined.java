@@ -28,12 +28,7 @@ public final class Joined implements Input {
      * @param rest The other inputs
      */
     public Joined(final Input first, final Input... rest) {
-        this(
-            new org.cactoos.iterable.Joined<>(
-                first,
-                new IterableOf<>(rest)
-            )
-        );
+        this(new org.cactoos.iterable.Joined<>(first, new IterableOf<>(rest)));
     }
 
     /**
@@ -46,12 +41,6 @@ public final class Joined implements Input {
 
     @Override
     public InputStream stream() throws Exception {
-        return new Reduced<InputStream>(
-            SequenceInputStream::new,
-            new Mapped<>(
-                input -> input::stream,
-                this.inputs
-            )
-        ).value();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

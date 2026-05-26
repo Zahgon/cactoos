@@ -2,7 +2,6 @@
  * SPDX-FileCopyrightText: Copyright (c) 2017-2026 Yegor Bugayenko
  * SPDX-License-Identifier: MIT
  */
-
 package org.cactoos.io;
 
 import java.io.InputStream;
@@ -52,6 +51,6 @@ public final class InputWithRetry implements Input {
 
     @Override
     public InputStream stream() throws Exception {
-        return this.retry.apply(this.input);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

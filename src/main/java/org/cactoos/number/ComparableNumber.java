@@ -12,8 +12,7 @@ package org.cactoos.number;
  *
  * @since 1.0.0
  */
-public final class ComparableNumber extends Number
-    implements Comparable<ComparableNumber> {
+public final class ComparableNumber extends Number implements Comparable<ComparableNumber> {
 
     /**
      * Serialization marker.
@@ -36,41 +35,41 @@ public final class ComparableNumber extends Number
 
     @Override
     public int intValue() {
-        return this.wrapped.intValue();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public long longValue() {
-        return this.wrapped.longValue();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public float floatValue() {
-        return this.wrapped.floatValue();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public double doubleValue() {
-        return this.wrapped.doubleValue();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public int compareTo(final ComparableNumber nbr) {
-        return Double.compare(this.doubleValue(), nbr.doubleValue());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public boolean equals(final Object obj) {
-        return this == obj || this.wrapped.equals(obj);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public int hashCode() {
-        return this.wrapped.hashCode();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String toString() {
-        return this.wrapped.toString();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

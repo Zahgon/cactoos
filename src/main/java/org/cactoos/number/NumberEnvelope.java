@@ -33,46 +33,46 @@ public abstract class NumberEnvelope extends Number {
 
     @Override
     public final int intValue() {
-        return this.wrapped.intValue();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final long longValue() {
-        return this.wrapped.longValue();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final float floatValue() {
-        return this.wrapped.floatValue();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final double doubleValue() {
-        return this.wrapped.doubleValue();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final short shortValue() {
-        return this.wrapped.shortValue();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final byte byteValue() {
-        return this.wrapped.byteValue();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final boolean equals(final Object obj) {
-        return this.wrapped.equals(obj);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final int hashCode() {
-        return this.wrapped.hashCode();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final String toString() {
-        return this.wrapped.toString();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

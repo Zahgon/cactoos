@@ -56,8 +56,7 @@ public final class Retry<X, Y> implements Func<X, Y> {
      * @param attempts Maximum number of attempts
      * @param wait The executions of the function
      */
-    public Retry(final Func<X, Y> fnc, final int attempts,
-        final Duration wait) {
+    public Retry(final Func<X, Y> fnc, final int attempts, final Duration wait) {
         this(fnc, attempt -> attempt >= attempts, wait);
     }
 
@@ -76,8 +75,7 @@ public final class Retry<X, Y> implements Func<X, Y> {
      * @param ext Exit condition, returns TRUE if there is no more reason to try
      * @param wait The executions of the function
      */
-    public Retry(final Func<X, Y> fnc, final Func<Integer, Boolean> ext,
-        final Duration wait) {
+    public Retry(final Func<X, Y> fnc, final Func<Integer, Boolean> ext, final Duration wait) {
         this.func = fnc;
         this.exit = ext;
         this.wait = wait;
@@ -86,31 +84,6 @@ public final class Retry<X, Y> implements Func<X, Y> {
     @Override
     @SuppressWarnings("PMD.AvoidCatchingGenericException")
     public Y apply(final X input) throws Exception {
-        int attempt = 0;
-        Exception error = new IllegalArgumentException(
-            "An immediate exit, didn't have a chance to try at least once"
-        );
-        while (!this.exit.apply(attempt)) {
-            try {
-                return this.func.apply(input);
-            } catch (final InterruptedException ex) {
-                Thread.currentThread().interrupt();
-                error = ex;
-                break;
-                // @checkstyle IllegalCatchCheck (1 line)
-            } catch (final Exception ex) {
-                error = ex;
-            }
-            if (!this.wait.isZero() && !this.wait.isNegative()) {
-                try {
-                    Thread.sleep(this.wait.toMillis());
-                } catch (final InterruptedException ex) {
-                    error = ex;
-                    break;
-                }
-            }
-            ++attempt;
-        }
-        throw error;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

@@ -39,16 +39,11 @@ public final class IteratorOfBooleans implements Iterator<Boolean> {
 
     @Override
     public boolean hasNext() {
-        return this.position.intValue() < this.list.length;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public Boolean next() {
-        if (!this.hasNext()) {
-            throw new NoSuchElementException(
-                "The iterator doesn't have any more items"
-            );
-        }
-        return this.list[this.position.getAndIncrement()];
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

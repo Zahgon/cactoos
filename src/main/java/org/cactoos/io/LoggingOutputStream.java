@@ -67,11 +67,7 @@ public final class LoggingOutputStream extends OutputStream {
      * @param dst The name of source data
      * @param lgr Message logger
      */
-    public LoggingOutputStream(
-        final OutputStream output,
-        final String dst,
-        final Logger lgr
-    ) {
+    public LoggingOutputStream(final OutputStream output, final String dst, final Logger lgr) {
         this(output, dst, () -> lgr);
     }
 
@@ -81,11 +77,7 @@ public final class LoggingOutputStream extends OutputStream {
      * @param dst The name of source data
      * @param lgr Message logger, deferred
      */
-    private LoggingOutputStream(
-        final OutputStream output,
-        final String dst,
-        final Scalar<Logger> lgr
-    ) {
+    private LoggingOutputStream(final OutputStream output, final String dst, final Scalar<Logger> lgr) {
         super();
         this.origin = output;
         this.destination = dst;
@@ -96,90 +88,26 @@ public final class LoggingOutputStream extends OutputStream {
 
     @Override
     public void write(final int data) throws IOException {
-        this.write(new byte[]{(byte) data}, 0, 1);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void write(final byte[] buf) throws IOException {
-        this.write(buf, 0, buf.length);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
-    public void write(final byte[] buf, final int offset,
-        final int len) throws IOException {
-        final Instant start = Instant.now();
-        this.origin.write(buf, offset, len);
-        this.bytes.getAndAdd((long) len);
-        this.time.getAndAdd(Duration.between(start, Instant.now()).toMillis());
-        final Level level = this.logger.value().getLevel();
-        if (!level.equals(Level.INFO)) {
-            this.logger.value().log(
-                level,
-                new UncheckedText(
-                    new FormattedText(
-                        "Written %d byte(s) to %s in %dms.",
-                        this.bytes.get(),
-                        this.destination,
-                        this.time.get()
-                    )
-                ).asString()
-            );
-        }
+    public void write(final byte[] buf, final int offset, final int len) throws IOException {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void close() throws IOException {
-        this.origin.close();
-        final Level level = this.logger.value().getLevel();
-        if (level.equals(Level.INFO)) {
-            this.logger.value().log(
-                level,
-                new UncheckedText(
-                    new FormattedText(
-                        "Written %d byte(s) to %s in %dms.",
-                        this.bytes.get(),
-                        this.destination,
-                        this.time.get()
-                    )
-                ).asString()
-            );
-        }
-        this.logger.value().log(
-            level,
-            new UncheckedText(
-                new FormattedText(
-                    "Closed output stream from %s.",
-                    this.destination
-                )
-            ).asString()
-        );
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void flush() throws IOException {
-        this.origin.flush();
-        final Level level = this.logger.value().getLevel();
-        if (level.equals(Level.INFO)) {
-            this.logger.value().log(
-                level,
-                new UncheckedText(
-                    new FormattedText(
-                        "Written %d byte(s) to %s in %dms.",
-                        this.bytes.get(),
-                        this.destination,
-                        this.time.get()
-                    )
-                ).asString()
-            );
-        }
-        this.logger.value().log(
-            level,
-            new UncheckedText(
-                new FormattedText(
-                    "Flushed output stream from %s.",
-                    this.destination
-                )
-            ).asString()
-        );
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

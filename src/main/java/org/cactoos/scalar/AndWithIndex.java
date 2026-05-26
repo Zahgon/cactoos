@@ -69,8 +69,7 @@ public final class AndWithIndex implements Scalar<Boolean> {
      * @param <X> Type of items in the iterable
      */
     @SafeVarargs
-    public <X> AndWithIndex(final BiFunc<? super X, Integer, Boolean> func,
-        final X... src) {
+    public <X> AndWithIndex(final BiFunc<? super X, Integer, Boolean> func, final X... src) {
         this(func, new IterableOf<>(src));
     }
 
@@ -81,8 +80,7 @@ public final class AndWithIndex implements Scalar<Boolean> {
      * @param <X> Type of items in the iterable
      * @since 0.24
      */
-    public <X> AndWithIndex(final BiProc<? super X, Integer> proc,
-        final Iterable<? extends X> src) {
+    public <X> AndWithIndex(final BiProc<? super X, Integer> proc, final Iterable<? extends X> src) {
         this(new BiFuncOf<>(proc, true), src);
     }
 
@@ -93,14 +91,8 @@ public final class AndWithIndex implements Scalar<Boolean> {
      * @param <X> Type of items in the iterable
      * @since 0.24
      */
-    public <X> AndWithIndex(final BiFunc<? super X, Integer, Boolean> func,
-        final Iterable<? extends X> src) {
-        this(
-            new Mapped<>(
-                item -> new FuncOf<>(input -> func.apply(item, input)),
-                src
-            )
-        );
+    public <X> AndWithIndex(final BiFunc<? super X, Integer, Boolean> func, final Iterable<? extends X> src) {
+        this(new Mapped<>(item -> new FuncOf<>(input -> func.apply(item, input)), src));
     }
 
     /**
@@ -122,15 +114,6 @@ public final class AndWithIndex implements Scalar<Boolean> {
 
     @Override
     public Boolean value() throws Exception {
-        boolean result = true;
-        int pos = 0;
-        for (final Func<Integer, Boolean> item : this.iterable) {
-            if (!item.apply(pos)) {
-                result = false;
-                break;
-            }
-            ++pos;
-        }
-        return result;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

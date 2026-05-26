@@ -174,8 +174,7 @@ public final class TeeInput implements Input {
      * @param charset The charset
      * @since 0.13.3
      */
-    public TeeInput(final CharSequence input, final File file,
-        final Charset charset) {
+    public TeeInput(final CharSequence input, final File file, final Charset charset) {
         this(new InputOf(input, charset), new OutputTo(file));
     }
 
@@ -186,8 +185,7 @@ public final class TeeInput implements Input {
      * @param charset The charset
      * @since 0.13.3
      */
-    public TeeInput(final CharSequence input, final File file,
-        final CharSequence charset) {
+    public TeeInput(final CharSequence input, final File file, final CharSequence charset) {
         this(new InputOf(input, charset), new OutputTo(file));
     }
 
@@ -208,8 +206,7 @@ public final class TeeInput implements Input {
      * @param charset The charset
      * @since 0.13.3
      */
-    public TeeInput(final CharSequence input, final Path file,
-        final Charset charset) {
+    public TeeInput(final CharSequence input, final Path file, final Charset charset) {
         this(new InputOf(input, charset), new OutputTo(file));
     }
 
@@ -220,8 +217,7 @@ public final class TeeInput implements Input {
      * @param charset The charset
      * @since 0.13.3
      */
-    public TeeInput(final CharSequence input, final Path file,
-        final CharSequence charset) {
+    public TeeInput(final CharSequence input, final Path file, final CharSequence charset) {
         this(new InputOf(input, charset), new OutputTo(file));
     }
 
@@ -242,8 +238,7 @@ public final class TeeInput implements Input {
      * @param charset The charset
      * @since 0.13.3
      */
-    public TeeInput(final CharSequence input, final Output output,
-        final Charset charset) {
+    public TeeInput(final CharSequence input, final Output output, final Charset charset) {
         this(new InputOf(input, charset), output);
     }
 
@@ -254,8 +249,7 @@ public final class TeeInput implements Input {
      * @param charset The charset
      * @since 0.13.3
      */
-    public TeeInput(final CharSequence input, final Output output,
-        final CharSequence charset) {
+    public TeeInput(final CharSequence input, final Output output, final CharSequence charset) {
         this(new InputOf(input, charset), output);
     }
 
@@ -287,8 +281,7 @@ public final class TeeInput implements Input {
      * @param charset The charset
      * @since 0.13.3
      */
-    public TeeInput(final Reader input, final File file,
-        final Charset charset) {
+    public TeeInput(final Reader input, final File file, final Charset charset) {
         this(new InputOf(input, charset), new OutputTo(file));
     }
 
@@ -301,8 +294,7 @@ public final class TeeInput implements Input {
      * @since 0.13.3
      * @checkstyle ParameterNumberCheck (5 lines)
      */
-    public TeeInput(final Reader input, final File file,
-        final Charset charset, final int size) {
+    public TeeInput(final Reader input, final File file, final Charset charset, final int size) {
         this(new InputOf(input, charset, size), new OutputTo(file));
     }
 
@@ -313,8 +305,7 @@ public final class TeeInput implements Input {
      * @param charset The charset
      * @since 0.13.3
      */
-    public TeeInput(final Reader input, final File file,
-        final CharSequence charset) {
+    public TeeInput(final Reader input, final File file, final CharSequence charset) {
         this(new InputOf(input, charset), new OutputTo(file));
     }
 
@@ -327,8 +318,7 @@ public final class TeeInput implements Input {
      * @since 0.13.3
      * @checkstyle ParameterNumberCheck (5 lines)
      */
-    public TeeInput(final Reader input, final File file,
-        final CharSequence charset, final int size) {
+    public TeeInput(final Reader input, final File file, final CharSequence charset, final int size) {
         this(new InputOf(input, charset, size), new OutputTo(file));
     }
 
@@ -360,8 +350,7 @@ public final class TeeInput implements Input {
      * @param charset The charset
      * @since 0.13.3
      */
-    public TeeInput(final Reader input, final Path file,
-        final Charset charset) {
+    public TeeInput(final Reader input, final Path file, final Charset charset) {
         this(new InputOf(input, charset), new OutputTo(file));
     }
 
@@ -374,8 +363,7 @@ public final class TeeInput implements Input {
      * @since 0.13.3
      * @checkstyle ParameterNumberCheck (5 lines)
      */
-    public TeeInput(final Reader input, final Path file,
-        final Charset charset, final int size) {
+    public TeeInput(final Reader input, final Path file, final Charset charset, final int size) {
         this(new InputOf(input, charset, size), new OutputTo(file));
     }
 
@@ -386,8 +374,7 @@ public final class TeeInput implements Input {
      * @param charset The charset
      * @since 0.13.3
      */
-    public TeeInput(final Reader input, final Path file,
-        final CharSequence charset) {
+    public TeeInput(final Reader input, final Path file, final CharSequence charset) {
         this(new InputOf(input, charset), new OutputTo(file));
     }
 
@@ -400,8 +387,7 @@ public final class TeeInput implements Input {
      * @since 0.13.3
      * @checkstyle ParameterNumberCheck (5 lines)
      */
-    public TeeInput(final Reader input, final Path file,
-        final CharSequence charset, final int size) {
+    public TeeInput(final Reader input, final Path file, final CharSequence charset, final int size) {
         this(new InputOf(input, charset, size), new OutputTo(file));
     }
 
@@ -433,8 +419,7 @@ public final class TeeInput implements Input {
      * @param charset The charset
      * @since 0.13.3
      */
-    public TeeInput(final Reader input, final Output output,
-        final Charset charset) {
+    public TeeInput(final Reader input, final Output output, final Charset charset) {
         this(new InputOf(input, charset), output);
     }
 
@@ -447,8 +432,7 @@ public final class TeeInput implements Input {
      * @since 0.13.3
      * @checkstyle ParameterNumberCheck (5 lines)
      */
-    public TeeInput(final Reader input, final Output output,
-        final Charset charset, final int size) {
+    public TeeInput(final Reader input, final Output output, final Charset charset, final int size) {
         this(new InputOf(input, charset, size), output);
     }
 
@@ -459,8 +443,7 @@ public final class TeeInput implements Input {
      * @param charset The charset
      * @since 0.13.3
      */
-    public TeeInput(final Reader input, final Output output,
-        final CharSequence charset) {
+    public TeeInput(final Reader input, final Output output, final CharSequence charset) {
         this(new InputOf(input, charset), output);
     }
 
@@ -473,8 +456,7 @@ public final class TeeInput implements Input {
      * @since 0.13.3
      * @checkstyle ParameterNumberCheck (5 lines)
      */
-    public TeeInput(final Reader input, final Output output,
-        final CharSequence charset, final int size) {
+    public TeeInput(final Reader input, final Output output, final CharSequence charset, final int size) {
         this(new InputOf(input, charset, size), output);
     }
 
@@ -525,8 +507,7 @@ public final class TeeInput implements Input {
      * @param charset Charset
      * @since 0.13.3
      */
-    public TeeInput(final char[] input, final Path path,
-        final Charset charset) {
+    public TeeInput(final char[] input, final Path path, final Charset charset) {
         this(new InputOf(input, charset), new OutputTo(path));
     }
 
@@ -537,8 +518,7 @@ public final class TeeInput implements Input {
      * @param charset Charset
      * @since 0.13.3
      */
-    public TeeInput(final char[] input, final Path path,
-        final CharSequence charset) {
+    public TeeInput(final char[] input, final Path path, final CharSequence charset) {
         this(new InputOf(input, charset), new OutputTo(path));
     }
 
@@ -559,8 +539,7 @@ public final class TeeInput implements Input {
      * @param charset Charset
      * @since 0.13.3
      */
-    public TeeInput(final char[] input, final File file,
-        final Charset charset) {
+    public TeeInput(final char[] input, final File file, final Charset charset) {
         this(new InputOf(input, charset), new OutputTo(file));
     }
 
@@ -571,8 +550,7 @@ public final class TeeInput implements Input {
      * @param charset Charset
      * @since 0.13.3
      */
-    public TeeInput(final char[] input, final File file,
-        final CharSequence charset) {
+    public TeeInput(final char[] input, final File file, final CharSequence charset) {
         this(new InputOf(input, charset), new OutputTo(file));
     }
 
@@ -593,8 +571,7 @@ public final class TeeInput implements Input {
      * @param charset Charset
      * @since 0.13.3
      */
-    public TeeInput(final char[] input, final Output output,
-        final Charset charset) {
+    public TeeInput(final char[] input, final Output output, final Charset charset) {
         this(new InputOf(input, charset), output);
     }
 
@@ -605,8 +582,7 @@ public final class TeeInput implements Input {
      * @param charset Charset
      * @since 0.13.3
      */
-    public TeeInput(final char[] input, final Output output,
-        final CharSequence charset) {
+    public TeeInput(final char[] input, final Output output, final CharSequence charset) {
         this(new InputOf(input, charset), output);
     }
 
@@ -638,8 +614,7 @@ public final class TeeInput implements Input {
      * @param charset Charset
      * @since 0.13.3
      */
-    public TeeInput(final Text text, final Path path,
-        final CharSequence charset) {
+    public TeeInput(final Text text, final Path path, final CharSequence charset) {
         this(new InputOf(text, charset), new OutputTo(path));
     }
 
@@ -671,8 +646,7 @@ public final class TeeInput implements Input {
      * @param charset Charset
      * @since 0.13.3
      */
-    public TeeInput(final Text text, final File file,
-        final CharSequence charset) {
+    public TeeInput(final Text text, final File file, final CharSequence charset) {
         this(new InputOf(text, charset), new OutputTo(file));
     }
 
@@ -693,8 +667,7 @@ public final class TeeInput implements Input {
      * @param charset Charset
      * @since 0.13.3
      */
-    public TeeInput(final Text text, final Output output,
-        final Charset charset) {
+    public TeeInput(final Text text, final Output output, final Charset charset) {
         this(new InputOf(text, charset), output);
     }
 
@@ -705,8 +678,7 @@ public final class TeeInput implements Input {
      * @param charset Charset
      * @since 0.13.3
      */
-    public TeeInput(final Text text, final Output output,
-        final CharSequence charset) {
+    public TeeInput(final Text text, final Output output, final CharSequence charset) {
         this(new InputOf(text, charset), output);
     }
 
@@ -788,8 +760,7 @@ public final class TeeInput implements Input {
      * @param charset The charset
      * @since 0.13.3
      */
-    public TeeInput(final Input input, final Writer writer,
-        final Charset charset) {
+    public TeeInput(final Input input, final Writer writer, final Charset charset) {
         this(input, new OutputTo(writer, charset));
     }
 
@@ -802,8 +773,7 @@ public final class TeeInput implements Input {
      * @since 0.13.3
      * @checkstyle ParameterNumberCheck (5 lines)
      */
-    public TeeInput(final Input input, final Writer writer,
-        final Charset charset, final int size) {
+    public TeeInput(final Input input, final Writer writer, final Charset charset, final int size) {
         this(input, new OutputTo(writer, charset, size));
     }
 
@@ -814,8 +784,7 @@ public final class TeeInput implements Input {
      * @param charset The charset
      * @since 0.13.3
      */
-    public TeeInput(final Input input, final Writer writer,
-        final CharSequence charset) {
+    public TeeInput(final Input input, final Writer writer, final CharSequence charset) {
         this(input, new OutputTo(writer, charset));
     }
 
@@ -828,8 +797,7 @@ public final class TeeInput implements Input {
      * @since 0.13.3
      * @checkstyle ParameterNumberCheck (5 lines)
      */
-    public TeeInput(final Input input, final Writer writer,
-        final CharSequence charset, final int size) {
+    public TeeInput(final Input input, final Writer writer, final CharSequence charset, final int size) {
         this(input, new OutputTo(writer, charset, size));
     }
 
@@ -845,8 +813,6 @@ public final class TeeInput implements Input {
 
     @Override
     public InputStream stream() throws Exception {
-        return new TeeInputStream(
-            this.source.stream(), this.target.stream()
-        );
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

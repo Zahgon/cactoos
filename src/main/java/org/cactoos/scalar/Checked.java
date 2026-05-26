@@ -37,8 +37,7 @@ public final class Checked<T, E extends Exception> implements Scalar<T> {
      * @param scalar Encapsulated scalar
      * @param fnc Func that wraps exception
      */
-    public Checked(final Scalar<? extends T> scalar,
-        final Func<? super Exception, ? extends E> fnc) {
+    public Checked(final Scalar<? extends T> scalar, final Func<? super Exception, ? extends E> fnc) {
         this.func = fnc;
         this.origin = scalar;
     }
@@ -46,18 +45,7 @@ public final class Checked<T, E extends Exception> implements Scalar<T> {
     @Override
     @SuppressWarnings("PMD.AvoidCatchingGenericException")
     public T value() throws E {
-        try {
-            return this.origin.value();
-            // @checkstyle IllegalCatchCheck (1 line)
-        } catch (final RuntimeException ex) {
-            throw ex;
-        } catch (final InterruptedException ex) {
-            Thread.currentThread().interrupt();
-            throw this.wrappedException(ex);
-            // @checkstyle IllegalCatchCheck (1 line)
-        } catch (final Exception ex) {
-            throw this.wrappedException(ex);
-        }
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -71,17 +59,8 @@ public final class Checked<T, E extends Exception> implements Scalar<T> {
     @SuppressWarnings("unchecked")
     private E wrappedException(final Exception exp) {
         E wrapped = new UncheckedFunc<>(this.func).apply(exp);
-        final String message = wrapped.getMessage().replaceFirst(
-            new UncheckedText(
-                new FormattedText(
-                    "%s: ",
-                    exp.getClass().getName()
-                )
-            ).asString(),
-            ""
-        );
-        if (new InheritanceLevel(exp.getClass(), wrapped.getClass()).value() >= 0
-            && message.equals(exp.getMessage())) {
+        final String message = wrapped.getMessage().replaceFirst(new UncheckedText(new FormattedText("%s: ", exp.getClass().getName())).asString(), "");
+        if (new InheritanceLevel(exp.getClass(), wrapped.getClass()).value() >= 0 && message.equals(exp.getMessage())) {
             wrapped = (E) exp;
         }
         return wrapped;

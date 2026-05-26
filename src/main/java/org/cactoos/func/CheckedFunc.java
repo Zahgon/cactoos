@@ -14,8 +14,7 @@ import org.cactoos.scalar.Checked;
  * @param <E> Exception's type
  * @since 0.32
  */
-public final class CheckedFunc<X, Y, E extends Exception> implements
-    Func<X, Y> {
+public final class CheckedFunc<X, Y, E extends Exception> implements Func<X, Y> {
 
     /**
      * Original func.
@@ -32,17 +31,13 @@ public final class CheckedFunc<X, Y, E extends Exception> implements
      * @param original Original func
      * @param fnc Function that wraps exceptions
      */
-    public CheckedFunc(final Func<X, Y> original,
-        final Func<Exception, E> fnc) {
+    public CheckedFunc(final Func<X, Y> original, final Func<Exception, E> fnc) {
         this.origin = original;
         this.func = fnc;
     }
 
     @Override
     public Y apply(final X input) throws E {
-        return new Checked<>(
-            () -> this.origin.apply(input),
-            this.func
-        ).value();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

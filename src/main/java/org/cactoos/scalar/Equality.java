@@ -44,21 +44,6 @@ public final class Equality<T extends Bytes> implements Scalar<Integer> {
 
     @Override
     public Integer value() throws Exception {
-        final byte[] lft = this.left.asBytes();
-        final byte[] rght = this.right.asBytes();
-        return new Ternary<>(
-            () -> lft.length == rght.length,
-            () -> {
-                int result = 0;
-                for (int idx = rght.length - 1; idx >= 0; --idx) {
-                    result = lft[idx] - rght[idx];
-                    if (result != 0) {
-                        break;
-                    }
-                }
-                return Integer.signum(result);
-            },
-            () -> Integer.signum(lft.length - rght.length)
-        ).value();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

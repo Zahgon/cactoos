@@ -44,6 +44,6 @@ public final class EndsWith implements Scalar<Boolean> {
 
     @Override
     public Boolean value() throws Exception {
-        return this.origin.asString().endsWith(this.suffix.asString());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

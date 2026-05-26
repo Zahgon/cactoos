@@ -31,46 +31,46 @@ public abstract class ListIteratorEnvelope<T> implements ListIterator<T> {
 
     @Override
     public final boolean hasNext() {
-        return this.origin.hasNext();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final T next() {
-        return this.origin.next();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final boolean hasPrevious() {
-        return this.origin.hasPrevious();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final T previous() {
-        return this.origin.previous();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final int nextIndex() {
-        return this.origin.nextIndex();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final int previousIndex() {
-        return this.origin.previousIndex();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final void remove() {
-        this.origin.remove();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final void set(final T item) {
-        this.origin.set(item);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final void add(final T item) {
-        this.origin.add(item);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

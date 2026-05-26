@@ -47,14 +47,11 @@ public final class StickyFunc<X, Y> implements Func<X, Y> {
      * @since 0.26
      */
     public StickyFunc(final Func<X, Y> fnc, final int max) {
-        this.func = new StickyBiFunc<>(
-            (first, second) -> fnc.apply(first),
-            max
-        );
+        this.func = new StickyBiFunc<>((first, second) -> fnc.apply(first), max);
     }
 
     @Override
     public Y apply(final X input) throws Exception {
-        return this.func.apply(input, true);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

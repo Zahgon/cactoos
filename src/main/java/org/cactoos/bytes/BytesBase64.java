@@ -2,7 +2,6 @@
  * SPDX-FileCopyrightText: Copyright (c) 2017-2026 Yegor Bugayenko
  * SPDX-License-Identifier: MIT
  */
-
 package org.cactoos.bytes;
 
 import java.util.Base64;
@@ -49,6 +48,6 @@ public final class BytesBase64 implements Bytes {
 
     @Override
     public byte[] asBytes() throws Exception {
-        return this.encoder.encode(this.origin.asBytes());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

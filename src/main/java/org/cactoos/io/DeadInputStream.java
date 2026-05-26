@@ -17,6 +17,6 @@ public final class DeadInputStream extends InputStream {
 
     @Override
     public int read() {
-        return -1;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

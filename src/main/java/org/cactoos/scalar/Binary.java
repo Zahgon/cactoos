@@ -44,20 +44,13 @@ public final class Binary implements Scalar<Boolean> {
      * @param condition Boolean function
      * @param consequent Proc executed when condition is true
      */
-    public Binary(
-        final Scalar<Boolean> condition,
-        final Runnable consequent
-    ) {
+    public Binary(final Scalar<Boolean> condition, final Runnable consequent) {
         this.condition = condition;
         this.consequent = consequent;
     }
 
     @Override
     public Boolean value() throws Exception {
-        final Boolean result = this.condition.value();
-        if (result) {
-            this.consequent.run();
-        }
-        return result;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

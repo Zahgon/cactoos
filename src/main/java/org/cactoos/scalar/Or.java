@@ -104,12 +104,7 @@ public final class Or implements Scalar<Boolean> {
      * @param <X> Type of items in the iterable
      */
     public <X> Or(final Func<? super X, Boolean> func, final Iterable<? extends X> src) {
-        this(
-            new Mapped<>(
-                item -> new ScalarOf<>(() -> func.apply(item)),
-                src
-            )
-        );
+        this(new Mapped<>(item -> new ScalarOf<>(() -> func.apply(item)), src));
     }
 
     /**
@@ -120,12 +115,7 @@ public final class Or implements Scalar<Boolean> {
      */
     @SafeVarargs
     public <X> Or(final X subject, final Func<? super X, Boolean>... conditions) {
-        this(
-            new Mapped<>(
-                item -> new ScalarOf<>(() -> item.apply(subject)),
-                new IterableOf<>(conditions)
-            )
-        );
+        this(new Mapped<>(item -> new ScalarOf<>(() -> item.apply(subject)), new IterableOf<>(conditions)));
     }
 
     /**
@@ -147,13 +137,6 @@ public final class Or implements Scalar<Boolean> {
 
     @Override
     public Boolean value() throws Exception {
-        boolean result = false;
-        for (final Scalar<Boolean> item : this.origin) {
-            if (item.value()) {
-                result = true;
-                break;
-            }
-        }
-        return result;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

@@ -34,27 +34,26 @@ public final class CloseShieldOutputStream extends OutputStream {
 
     @Override
     public void write(final int data) throws IOException {
-        this.inner.get().write(data);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void write(final byte[] buf) throws IOException {
-        this.inner.get().write(buf);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
-    public void write(final byte[] buf, final int off, final int len)
-        throws IOException {
-        this.inner.get().write(buf, off, len);
+    public void write(final byte[] buf, final int off, final int len) throws IOException {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void flush() throws IOException {
-        this.inner.get().flush();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void close() {
-        this.inner.set(new DeadOutputStream());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

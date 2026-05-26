@@ -50,13 +50,11 @@ public final class Sticky<T> implements Scalar<T> {
      * @param scalar The Scalar to cache
      */
     public Sticky(final Scalar<? extends T> scalar) {
-        this.func = new StickyFunc<>(
-            input -> scalar.value()
-        );
+        this.func = new StickyFunc<>(input -> scalar.value());
     }
 
     @Override
     public T value() throws Exception {
-        return this.func.apply(true);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

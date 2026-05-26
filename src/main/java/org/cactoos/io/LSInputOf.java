@@ -58,8 +58,7 @@ public final class LSInputOf implements LSInput {
      * @param bse Base
      * @checkstyle ParameterNumberCheck (3 lines)
      */
-    public LSInputOf(final Input data, final String pubid,
-        final String sysid, final String bse) {
+    public LSInputOf(final Input data, final String pubid, final String sysid, final String bse) {
         this.input = data;
         this.pid = pubid;
         this.sid = sysid;
@@ -68,99 +67,81 @@ public final class LSInputOf implements LSInput {
 
     @Override
     public Reader getCharacterStream() {
-        return new ReaderOf(this.getByteStream());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void setCharacterStream(final Reader stream) {
-        throw new UnsupportedOperationException(
-            "#setCharacterStream() is not supported"
-        );
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public InputStream getByteStream() {
-        return new UncheckedInput(this.input).stream();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void setByteStream(final InputStream stream) {
-        throw new UnsupportedOperationException(
-            "#setByteStream() is not supported"
-        );
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String getStringData() {
-        return new UncheckedText(
-            new TextOf(this.input)
-        ).asString();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void setStringData(final String data) {
-        throw new UnsupportedOperationException(
-            "#setStringData() is not supported"
-        );
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String getSystemId() {
-        return this.sid;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void setSystemId(final String sysid) {
-        throw new UnsupportedOperationException(
-            "#setSystemId() is not supported"
-        );
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String getPublicId() {
-        return this.pid;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void setPublicId(final String pubid) {
-        throw new UnsupportedOperationException(
-            "#setPublicId() is not supported"
-        );
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String getBaseURI() {
-        return this.base;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void setBaseURI(final String uri) {
-        throw new UnsupportedOperationException(
-            "#setBaseURI() is not supported"
-        );
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String getEncoding() {
-        return StandardCharsets.UTF_8.displayName();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void setEncoding(final String encoding) {
-        throw new UnsupportedOperationException(
-            "#setEncoding() is not supported"
-        );
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public boolean getCertifiedText() {
-        return true;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void setCertifiedText(final boolean text) {
-        throw new UnsupportedOperationException(
-            "#setCertifiedText() is not supported"
-        );
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

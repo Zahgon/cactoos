@@ -31,6 +31,6 @@ public final class NoNulls<X> implements Iterable<X> {
 
     @Override
     public Iterator<X> iterator() {
-        return new org.cactoos.iterator.NoNulls<>(this.origin.iterator());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

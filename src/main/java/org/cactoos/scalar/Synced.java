@@ -61,8 +61,6 @@ public final class Synced<T> implements Scalar<T> {
 
     @Override
     public T value() throws Exception {
-        synchronized (this.mutex) {
-            return this.origin.value();
-        }
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

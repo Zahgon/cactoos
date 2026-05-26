@@ -55,21 +55,11 @@ public final class Synced<T> implements Iterator<T> {
 
     @Override
     public boolean hasNext() {
-        this.lock.readLock().lock();
-        try {
-            return this.iterator.hasNext();
-        } finally {
-            this.lock.readLock().unlock();
-        }
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public T next() {
-        this.lock.writeLock().lock();
-        try {
-            return this.iterator.next();
-        } finally {
-            this.lock.writeLock().unlock();
-        }
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

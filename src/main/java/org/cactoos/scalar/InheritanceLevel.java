@@ -49,13 +49,7 @@ public final class InheritanceLevel implements Scalar<Integer> {
 
     @Override
     public Integer value() {
-        final int level;
-        if (this.base.equals(this.derived)) {
-            level = 0;
-        } else {
-            level = this.calculateLevel();
-        }
-        return level;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**

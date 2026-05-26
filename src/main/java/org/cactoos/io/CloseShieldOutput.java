@@ -32,6 +32,6 @@ public final class CloseShieldOutput implements Output {
 
     @Override
     public OutputStream stream() throws Exception {
-        return new CloseShieldOutputStream(this.origin.stream());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

@@ -42,24 +42,20 @@ public final class Shuffled<T> implements Iterator<T> {
      * @param iterator The original iterator
      */
     public Shuffled(final Random random, final Iterator<? extends T> iterator) {
-        this.scalar = new Unchecked<>(
-            new Sticky<>(
-                () -> {
-                    final List<T> items = new ListOf<>(iterator);
-                    Collections.shuffle(items, random);
-                    return items.iterator();
-                }
-            )
-        );
+        this.scalar = new Unchecked<>(new Sticky<>(() -> {
+            final List<T> items = new ListOf<>(iterator);
+            Collections.shuffle(items, random);
+            return items.iterator();
+        }));
     }
 
     @Override
     public boolean hasNext() {
-        return this.scalar.value().hasNext();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public T next() {
-        return this.scalar.value().next();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

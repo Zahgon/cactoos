@@ -34,47 +34,46 @@ public final class CloseShieldInputStream extends InputStream {
 
     @Override
     public int read() throws IOException {
-        return this.inner.get().read();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public int read(final byte[] buffer) throws IOException {
-        return this.inner.get().read(buffer);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
-    public int read(final byte[] buffer, final int offset,
-        final int length) throws IOException {
-        return this.inner.get().read(buffer, offset, length);
+    public int read(final byte[] buffer, final int offset, final int length) throws IOException {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void close() {
-        this.inner.set(new DeadInputStream());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public long skip(final long num) throws IOException {
-        return this.inner.get().skip(num);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public int available() throws IOException {
-        return this.inner.get().available();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void mark(final int limit) {
-        this.inner.get().mark(limit);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void reset() throws IOException {
-        this.inner.get().reset();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public boolean markSupported() {
-        return this.inner.get().markSupported();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

@@ -43,13 +43,11 @@ public final class UncheckedBytes implements Bytes {
      */
     @SuppressWarnings("unchecked")
     public UncheckedBytes(final Bytes bts, final Fallback<byte[]> fbk) {
-        this.scalar = new Unchecked<>(
-            new ScalarWithFallback<>(bts::asBytes, fbk)
-        );
+        this.scalar = new Unchecked<>(new ScalarWithFallback<>(bts::asBytes, fbk));
     }
 
     @Override
     public byte[] asBytes() {
-        return this.scalar.value();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

@@ -49,11 +49,7 @@ public final class LoggingInput implements Input {
      * @param src The name of source data
      * @param lgr Message logger
      */
-    public LoggingInput(
-        final Input input,
-        final String src,
-        final Logger lgr
-    ) {
+    public LoggingInput(final Input input, final String src, final Logger lgr) {
         this(input, src, () -> lgr);
     }
 
@@ -63,11 +59,7 @@ public final class LoggingInput implements Input {
      * @param src The name of source data
      * @param lgr Message logger, deferred
      */
-    private LoggingInput(
-        final Input input,
-        final String src,
-        final Scalar<Logger> lgr
-    ) {
+    private LoggingInput(final Input input, final String src, final Scalar<Logger> lgr) {
         this.origin = input;
         this.source = src;
         this.logger = lgr;
@@ -75,10 +67,6 @@ public final class LoggingInput implements Input {
 
     @Override
     public InputStream stream() throws Exception {
-        return new LoggingInputStream(
-            this.origin.stream(),
-            this.source,
-            new Unchecked<>(this.logger).value()
-        );
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

@@ -2,7 +2,6 @@
  * SPDX-FileCopyrightText: Copyright (c) 2017-2026 Yegor Bugayenko
  * SPDX-License-Identifier: MIT
  */
-
 package org.cactoos.iterator;
 
 import java.util.Iterator;
@@ -40,19 +39,11 @@ public final class Cycled<T> implements Iterator<T> {
 
     @Override
     public boolean hasNext() {
-        if (this.reference.get() == null || !this.reference.get().hasNext()) {
-            this.reference.set(this.origin.iterator());
-        }
-        return this.reference.get().hasNext();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public T next() {
-        if (!this.hasNext()) {
-            throw new NoSuchElementException(
-                "The iterator doesn't have any more items"
-            );
-        }
-        return this.reference.get().next();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

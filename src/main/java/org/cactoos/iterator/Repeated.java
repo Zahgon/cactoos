@@ -50,17 +50,11 @@ public final class Repeated<T> implements Iterator<T> {
 
     @Override
     public boolean hasNext() {
-        return this.repeat > 0;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public T next() {
-        if (!this.hasNext()) {
-            throw new NoSuchElementException(
-                "The iterator can't repeat anymore."
-            );
-        }
-        --this.repeat;
-        return this.elm.value();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

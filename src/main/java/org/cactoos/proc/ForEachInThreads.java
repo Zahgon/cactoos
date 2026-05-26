@@ -49,8 +49,6 @@ public final class ForEachInThreads<X> implements Proc<Iterable<X>> {
 
     @Override
     public void exec(final Iterable<X> input) throws Exception {
-        new AndInThreads(
-            new FuncOf<>(this.proc, true), input
-        ).value();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

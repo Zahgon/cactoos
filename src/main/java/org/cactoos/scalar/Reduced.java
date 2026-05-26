@@ -71,10 +71,7 @@ public final class Reduced<T> implements Scalar<T> {
      * @param values Values to be wrapped as scalars
      */
     @SafeVarargs
-    public Reduced(
-        final BiFunc<? super T, ? super T, ? extends T> reduce,
-        final T... values
-    ) {
+    public Reduced(final BiFunc<? super T, ? super T, ? extends T> reduce, final T... values) {
         this(reduce, new Mapped<>(Constant::new, values));
     }
 
@@ -84,10 +81,7 @@ public final class Reduced<T> implements Scalar<T> {
      * @param reduce Reducing function
      * @since 0.55.0
      */
-    public Reduced(
-        final Iterable<T> values,
-        final BiFunc<? super T, ? super T, ? extends T> reduce
-    ) {
+    public Reduced(final Iterable<T> values, final BiFunc<? super T, ? super T, ? extends T> reduce) {
         this(reduce, new Mapped<>(Constant::new, values));
     }
 
@@ -96,27 +90,13 @@ public final class Reduced<T> implements Scalar<T> {
      * @param reduce Reducing function
      * @param scalars The scalars
      */
-    public Reduced(
-        final BiFunc<? super T, ? super T, ? extends T> reduce,
-        final Iterable<? extends Scalar<? extends T>> scalars
-    ) {
+    public Reduced(final BiFunc<? super T, ? super T, ? extends T> reduce, final Iterable<? extends Scalar<? extends T>> scalars) {
         this.items = scalars;
         this.function = reduce;
     }
 
     @Override
     public T value() throws Exception {
-        final Iterator<? extends Scalar<? extends T>> iter = this.items.iterator();
-        if (!iter.hasNext()) {
-            throw new NoSuchElementException(
-                "Can't find first element in an empty iterable"
-            );
-        }
-        T acc = iter.next().value();
-        while (iter.hasNext()) {
-            final T next = iter.next().value();
-            acc = this.function.apply(acc, next);
-        }
-        return acc;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

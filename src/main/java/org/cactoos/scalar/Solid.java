@@ -50,14 +50,6 @@ public final class Solid<T> implements Scalar<T> {
 
     @Override
     public T value() throws Exception {
-        if (!this.computed) {
-            synchronized (this.lock) {
-                if (!this.computed) {
-                    this.cache = this.origin.value();
-                    this.computed = true;
-                }
-            }
-        }
-        return this.cache;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

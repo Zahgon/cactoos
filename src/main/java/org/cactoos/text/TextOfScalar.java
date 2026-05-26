@@ -35,32 +35,22 @@ public final class TextOfScalar implements Text {
 
     @Override
     public String asString() throws Exception {
-        return this.origin.value().toString();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String toString() {
-        return new UncheckedText(this).asString();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public int hashCode() {
-        return new Unchecked<>(this.origin).value().hashCode();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     @SuppressFBWarnings("EQ_UNUSUAL")
     public boolean equals(final Object obj) {
-        return new Unchecked<>(
-            new Or(
-                () -> this == obj,
-                new And(
-                    () -> obj instanceof Text,
-                    () -> new UncheckedText(this)
-                        .asString()
-                        .equals(new UncheckedText((Text) obj).asString())
-                )
-            )
-        ).value();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

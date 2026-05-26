@@ -82,16 +82,8 @@ final class WriterAsOutputStream extends OutputStream {
      * @param charset Charset
      * @param size Buffer size
      */
-    WriterAsOutputStream(final Writer wtr, final CharSequence charset,
-        final int size) {
-        this(
-            wtr,
-            (Scalar<CharsetDecoder>) () -> Charset.forName(charset.toString())
-                .newDecoder()
-                .onMalformedInput(CodingErrorAction.REPORT)
-                .onUnmappableCharacter(CodingErrorAction.REPORT),
-            size
-        );
+    WriterAsOutputStream(final Writer wtr, final CharSequence charset, final int size) {
+        this(wtr, (Scalar<CharsetDecoder>) () -> Charset.forName(charset.toString()).newDecoder().onMalformedInput(CodingErrorAction.REPORT).onUnmappableCharacter(CodingErrorAction.REPORT), size);
     }
 
     /**
@@ -110,15 +102,8 @@ final class WriterAsOutputStream extends OutputStream {
      * @param charset Charset
      * @param size Buffer size
      */
-    WriterAsOutputStream(final Writer wtr, final Charset charset,
-        final int size) {
-        this(
-            wtr,
-            (Scalar<CharsetDecoder>) () -> charset.newDecoder()
-                .onMalformedInput(CodingErrorAction.REPORT)
-                .onUnmappableCharacter(CodingErrorAction.REPORT),
-            size
-        );
+    WriterAsOutputStream(final Writer wtr, final Charset charset, final int size) {
+        this(wtr, (Scalar<CharsetDecoder>) () -> charset.newDecoder().onMalformedInput(CodingErrorAction.REPORT).onUnmappableCharacter(CodingErrorAction.REPORT), size);
     }
 
     /**
@@ -127,8 +112,7 @@ final class WriterAsOutputStream extends OutputStream {
      * @param ddr Charset decoder
      * @param size Buffer size
      */
-    WriterAsOutputStream(final Writer wtr, final CharsetDecoder ddr,
-        final int size) {
+    WriterAsOutputStream(final Writer wtr, final CharsetDecoder ddr, final int size) {
         this(wtr, (Scalar<CharsetDecoder>) () -> ddr, size);
     }
 
@@ -138,8 +122,7 @@ final class WriterAsOutputStream extends OutputStream {
      * @param ddr Charset decoder, deferred
      * @param size Buffer size
      */
-    private WriterAsOutputStream(final Writer wtr,
-        final Scalar<CharsetDecoder> ddr, final int size) {
+    private WriterAsOutputStream(final Writer wtr, final Scalar<CharsetDecoder> ddr, final int size) {
         super();
         this.writer = wtr;
         this.decoder = new Unchecked<>(new Sticky<>(ddr));
@@ -149,29 +132,22 @@ final class WriterAsOutputStream extends OutputStream {
 
     @Override
     public void write(final int data) throws IOException {
-        this.write(new byte[] {(byte) data}, 0, 1);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void write(final byte[] buffer) throws IOException {
-        this.write(buffer, 0, buffer.length);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
-    public void write(final byte[] buffer, final int offset,
-        final int length) throws IOException {
-        int left = length;
-        int start = offset;
-        while (left > 0) {
-            final int taken = this.next(buffer, start, left);
-            start += taken;
-            left -= taken;
-        }
+    public void write(final byte[] buffer, final int offset, final int length) throws IOException {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void close() throws IOException {
-        this.writer.close();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -182,23 +158,18 @@ final class WriterAsOutputStream extends OutputStream {
      * @return How much was taken
      * @throws IOException If fails
      */
-    private int next(final byte[] buffer, final int offset,
-        final int length) throws IOException {
+    private int next(final byte[] buffer, final int offset, final int length) throws IOException {
         final ByteBuffer ibuf = this.input.value();
         final CharBuffer obuf = this.output.value();
         final int max = Math.min(length, ibuf.remaining());
         ibuf.put(buffer, offset, max);
         ibuf.flip();
         while (true) {
-            final CoderResult result = this.decoder.value().decode(
-                ibuf, obuf, false
-            );
+            final CoderResult result = this.decoder.value().decode(ibuf, obuf, false);
             if (result.isError()) {
                 result.throwException();
             }
-            this.writer.write(
-                obuf.array(), 0, obuf.position()
-            );
+            this.writer.write(obuf.array(), 0, obuf.position());
             this.writer.flush();
             obuf.rewind();
             if (result.isUnderflow()) {

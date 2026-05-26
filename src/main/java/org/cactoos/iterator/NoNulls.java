@@ -40,28 +40,16 @@ public final class NoNulls<X> implements Iterator<X> {
 
     @Override
     public boolean hasNext() {
-        return this.iterator.hasNext();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public X next() {
-        final X next = this.iterator.next();
-        if (next == null) {
-            throw new IllegalStateException(
-                new UncheckedText(
-                    new FormattedText(
-                        "Item #%d of %s is NULL",
-                        this.pos.get(), this.iterator
-                    )
-                ).asString()
-            );
-        }
-        this.pos.incrementAndGet();
-        return next;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void remove() {
-        this.iterator.remove();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

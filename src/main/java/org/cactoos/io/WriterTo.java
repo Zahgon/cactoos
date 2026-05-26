@@ -98,24 +98,21 @@ public final class WriterTo extends Writer {
      */
     private WriterTo(final Scalar<Writer> tgt) {
         super();
-        this.target = new Unchecked<>(
-            new Sticky<>(tgt)
-        );
+        this.target = new Unchecked<>(new Sticky<>(tgt));
     }
 
     @Override
-    public void write(final char[] cbuf, final int off, final int len)
-        throws IOException {
-        this.target.value().write(cbuf, off, len);
+    public void write(final char[] cbuf, final int off, final int len) throws IOException {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void flush() throws IOException {
-        this.target.value().flush();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void close() throws IOException {
-        this.target.value().close();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

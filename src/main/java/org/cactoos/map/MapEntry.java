@@ -44,43 +44,31 @@ public final class MapEntry<K, V> implements Map.Entry<K, V> {
 
     @Override
     public String toString() {
-        return new UncheckedText(
-            new FormattedText(
-                "%s=%s",
-                this.key,
-                this.value
-            )
-        ).asString();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public K getKey() {
-        return this.key;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public V getValue() {
-        return this.value;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public V setValue(final V val) {
-        throw new UnsupportedOperationException(
-            "#setValue() is not supported"
-        );
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public boolean equals(final Object obj) {
-        return obj instanceof Map.Entry
-            && Objects.equals(Map.Entry.class.cast(obj).getKey(), this.key)
-            && Objects.equals(Map.Entry.class.cast(obj).getValue(), this.value);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public int hashCode() {
-        return new HashCode(
-            new IterableOf<>(this.key, this.value)
-        ).value();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

@@ -48,8 +48,6 @@ public final class SyncFunc<X, Y> implements Func<X, Y> {
 
     @Override
     public Y apply(final X input) throws Exception {
-        synchronized (this.lock) {
-            return this.func.apply(input);
-        }
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

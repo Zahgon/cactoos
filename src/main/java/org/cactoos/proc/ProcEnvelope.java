@@ -31,6 +31,6 @@ public abstract class ProcEnvelope<X> implements Proc<X> {
 
     @Override
     public final void exec(final X input) throws Exception {
-        this.origin.exec(input);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

@@ -41,120 +41,81 @@ public final class NoNulls<X> implements Collection<X> {
 
     @Override
     public int size() {
-        return this.col.size();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public boolean isEmpty() {
-        return this.col.isEmpty();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public Iterator<X> iterator() {
-        return new org.cactoos.iterator.NoNulls<>(this.col.iterator());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public boolean contains(final Object item) {
-        if (item == null) {
-            throw new IllegalArgumentException(
-                "Argument of #contains(T) is NULL"
-            );
-        }
-        return this.col.contains(item);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public Object[] toArray() {
-        final Object[] array = this.col.toArray();
-        for (int idx = 0; idx < array.length; ++idx) {
-            if (array[idx] == null) {
-                throw new IllegalStateException(
-                    new UncheckedText(
-                        new FormattedText(
-                            "Item #%d of #toArray() is NULL", idx
-                        )
-                    ).asString()
-                );
-            }
-        }
-        return array;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public <T> T[] toArray(final T[] array) {
-        final T[] result = this.col.toArray(array);
-        for (int idx = 0; idx < result.length; ++idx) {
-            if (result[idx] == null) {
-                throw new IllegalStateException(
-                    new UncheckedText(
-                        new FormattedText(
-                            "Item #%d of #toArray(array) is NULL", idx
-                        )
-                    ).asString()
-                );
-            }
-        }
-        return result;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public boolean add(final X item) {
-        if (item == null) {
-            throw new IllegalStateException(
-                "Item of #add(T) is NULL"
-            );
-        }
-        return this.col.add(item);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public boolean remove(final Object item) {
-        if (item == null) {
-            throw new IllegalStateException(
-                "Item of #remove(T) is NULL"
-            );
-        }
-        return this.col.remove(item);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public boolean containsAll(final Collection<?> items) {
-        return this.col.containsAll(new org.cactoos.collection.NoNulls<>(items));
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public boolean addAll(final Collection<? extends X> items) {
-        return this.col.addAll(new org.cactoos.collection.NoNulls<>(items));
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public boolean removeAll(final Collection<?> items) {
-        return this.col.removeAll(new org.cactoos.collection.NoNulls<>(items));
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public boolean retainAll(final Collection<?> items) {
-        return this.col.retainAll(new org.cactoos.collection.NoNulls<>(items));
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void clear() {
-        this.col.clear();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String toString() {
-        return this.col.toString();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public boolean equals(final Object obj) {
-        return this.col.equals(obj);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public int hashCode() {
-        return this.col.hashCode();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

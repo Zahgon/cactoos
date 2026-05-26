@@ -48,8 +48,7 @@ public final class Sliced<T> implements Iterator<T> {
      * @param count Maximum number of elements for resulted iterator
      * @param iterator Decorated iterator
      */
-    public Sliced(final int start, final int count,
-        final Iterator<? extends T> iterator) {
+    public Sliced(final int start, final int count, final Iterator<? extends T> iterator) {
         this(start, index -> index > start + count - 1, iterator);
     }
 
@@ -69,8 +68,7 @@ public final class Sliced<T> implements Iterator<T> {
      * @param end Predicate that test whether iterating should stop
      * @param iterator Decorated iterator
      */
-    private Sliced(final int start, final IntPredicate end,
-        final Iterator<? extends T> iterator) {
+    private Sliced(final int start, final IntPredicate end, final Iterator<? extends T> iterator) {
         this.start = start;
         this.end = end;
         this.iterator = iterator;
@@ -79,19 +77,12 @@ public final class Sliced<T> implements Iterator<T> {
 
     @Override
     public boolean hasNext() {
-        this.skip();
-        return !this.end.test(this.current) && this.iterator.hasNext();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public T next() {
-        if (!this.hasNext()) {
-            throw new NoSuchElementException(
-                "The iterator doesn't have items any more"
-            );
-        }
-        ++this.current;
-        return this.iterator.next();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**

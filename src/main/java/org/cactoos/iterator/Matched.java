@@ -44,11 +44,7 @@ public final class Matched<X, Y> implements Iterator<X> {
      * @param fst The first part of duplex iterator
      * @param snd The second part of duplex iterator
      */
-    public Matched(
-        final BiFunc<? super X, ? super Y, Boolean> fnc,
-        final Iterator<? extends X> fst,
-        final Iterator<? extends Y> snd
-    ) {
+    public Matched(final BiFunc<? super X, ? super Y, Boolean> fnc, final Iterator<? extends X> fst, final Iterator<? extends Y> snd) {
         this.func = new UncheckedBiFunc<>(fnc);
         this.first = fst;
         this.second = snd;
@@ -56,24 +52,11 @@ public final class Matched<X, Y> implements Iterator<X> {
 
     @Override
     public boolean hasNext() {
-        return this.first.hasNext() || this.second.hasNext();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public X next() {
-        if (!this.first.hasNext() || !this.second.hasNext()) {
-            throw new NoSuchElementException("Size mismatch of iterators");
-        }
-        final X fvl = this.first.next();
-        final Y svl = this.second.next();
-        if (!this.func.apply(fvl, svl)) {
-            throw new IllegalStateException(
-                new FormattedText(
-                    "There is no correlation between `%s` and `%s`.",
-                    fvl, svl
-                ).toString()
-            );
-        }
-        return fvl;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

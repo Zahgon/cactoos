@@ -49,6 +49,6 @@ public final class RootCause implements Scalar<Throwable> {
 
     @Override
     public Throwable value() throws Exception {
-        return this.itr.value().next();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

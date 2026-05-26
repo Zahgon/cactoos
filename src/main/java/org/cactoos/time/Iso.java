@@ -15,6 +15,6 @@ public final class Iso implements Scalar<DateTimeFormatter> {
 
     @Override
     public DateTimeFormatter value() {
-        return DateTimeFormatter.ISO_OFFSET_DATE_TIME;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

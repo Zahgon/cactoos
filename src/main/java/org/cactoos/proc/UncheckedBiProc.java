@@ -34,8 +34,6 @@ public final class UncheckedBiProc<X, Y> implements BiProc<X, Y> {
 
     @Override
     public void exec(final X first, final Y second) {
-        new UncheckedBiFunc<>(
-            new BiFuncOf<>(this.proc, null)
-        ).apply(first, second);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

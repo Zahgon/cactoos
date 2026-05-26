@@ -38,8 +38,7 @@ public final class Folded<X, T> implements Scalar<X> {
      * @param list Array of items
      */
     @SafeVarargs
-    public Folded(final X ipt, final BiFunc<? super X, ? super T, ? extends X> fnc,
-        final T... list) {
+    public Folded(final X ipt, final BiFunc<? super X, ? super T, ? extends X> fnc, final T... list) {
         this(ipt, fnc, new IterableOf<>(list));
     }
 
@@ -49,8 +48,7 @@ public final class Folded<X, T> implements Scalar<X> {
      * @param fnc Func original
      * @param list List of items
      */
-    public Folded(final X ipt, final BiFunc<? super X, ? super T, ? extends X> fnc,
-        final Iterable<? extends T> list) {
+    public Folded(final X ipt, final BiFunc<? super X, ? super T, ? extends X> fnc, final Iterable<? extends T> list) {
         this.iterable = list;
         this.input = ipt;
         this.func = fnc;
@@ -58,10 +56,6 @@ public final class Folded<X, T> implements Scalar<X> {
 
     @Override
     public X value() throws Exception {
-        X memo = this.input;
-        for (final T item : this.iterable) {
-            memo = this.func.apply(memo, item);
-        }
-        return memo;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

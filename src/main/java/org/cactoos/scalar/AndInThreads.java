@@ -69,14 +69,8 @@ public final class AndInThreads implements Scalar<Boolean> {
      * @param src The iterable
      * @param <X> Type of items in the iterable
      */
-    public <X> AndInThreads(final Func<? super X, Boolean> func,
-        final Iterable<? extends X> src) {
-        this(
-            new Mapped<>(
-                item -> new ScalarOf<>(() -> func.apply(item)),
-                src
-            )
-        );
+    public <X> AndInThreads(final Func<? super X, Boolean> func, final Iterable<? extends X> src) {
+        this(new Mapped<>(item -> new ScalarOf<>(() -> func.apply(item)), src));
     }
 
     /**
@@ -104,11 +98,7 @@ public final class AndInThreads implements Scalar<Boolean> {
      * @param <X> Type of items in the iterable
      */
     @SafeVarargs
-    public <X> AndInThreads(
-        final ExecutorService svc,
-        final Proc<? super X> proc,
-        final X... src
-    ) {
+    public <X> AndInThreads(final ExecutorService svc, final Proc<? super X> proc, final X... src) {
         this(svc, new FuncOf<>(proc, true), src);
     }
 
@@ -120,11 +110,7 @@ public final class AndInThreads implements Scalar<Boolean> {
      * @param <X> Type of items in the iterable
      */
     @SafeVarargs
-    public <X> AndInThreads(
-        final ExecutorService svc,
-        final Func<? super X, Boolean> func,
-        final X... src
-    ) {
+    public <X> AndInThreads(final ExecutorService svc, final Func<? super X, Boolean> func, final X... src) {
         this(svc, func, new IterableOf<>(src));
     }
 
@@ -135,11 +121,7 @@ public final class AndInThreads implements Scalar<Boolean> {
      * @param src The iterable
      * @param <X> Type of items in the iterable
      */
-    public <X> AndInThreads(
-        final ExecutorService svc,
-        final Proc<? super X> proc,
-        final Iterable<? extends X> src
-    ) {
+    public <X> AndInThreads(final ExecutorService svc, final Proc<? super X> proc, final Iterable<? extends X> src) {
         this(svc, new FuncOf<>(proc, true), src);
     }
 
@@ -150,18 +132,8 @@ public final class AndInThreads implements Scalar<Boolean> {
      * @param src The iterable
      * @param <X> Type of items in the iterable
      */
-    public <X> AndInThreads(
-        final ExecutorService svc,
-        final Func<? super X, Boolean> func,
-        final Iterable<? extends X> src
-    ) {
-        this(
-            svc,
-            new Mapped<>(
-                item -> new ScalarOf<>(() -> func.apply(item)),
-                src
-            )
-        );
+    public <X> AndInThreads(final ExecutorService svc, final Func<? super X, Boolean> func, final Iterable<? extends X> src) {
+        this(svc, new Mapped<>(item -> new ScalarOf<>(() -> func.apply(item)), src));
     }
 
     /**
@@ -170,8 +142,7 @@ public final class AndInThreads implements Scalar<Boolean> {
      * @param src The iterable
      */
     @SafeVarargs
-    public AndInThreads(final ExecutorService svc,
-        final Scalar<Boolean>... src) {
+    public AndInThreads(final ExecutorService svc, final Scalar<Boolean>... src) {
         this(svc, new IterableOf<>(src));
     }
 
@@ -180,8 +151,7 @@ public final class AndInThreads implements Scalar<Boolean> {
      * @param svc Executable service to run thread in
      * @param src The iterable
      */
-    public AndInThreads(final ExecutorService svc,
-        final Iterable<? extends Scalar<Boolean>> src) {
+    public AndInThreads(final ExecutorService svc, final Iterable<? extends Scalar<Boolean>> src) {
         this((Scalar<ExecutorService>) () -> svc, src, false);
     }
 
@@ -191,8 +161,7 @@ public final class AndInThreads implements Scalar<Boolean> {
      * @param src The iterable
      * @param sht Shut it down
      */
-    private AndInThreads(final Scalar<ExecutorService> svc,
-        final Iterable<? extends Scalar<Boolean>> src, final boolean sht) {
+    private AndInThreads(final Scalar<ExecutorService> svc, final Iterable<? extends Scalar<Boolean>> src, final boolean sht) {
         this.service = new Unchecked<>(new Sticky<>(svc));
         this.iterable = src;
         this.shut = sht;
@@ -200,30 +169,6 @@ public final class AndInThreads implements Scalar<Boolean> {
 
     @Override
     public Boolean value() throws Exception {
-        final Collection<Future<Boolean>> futures = new LinkedList<>();
-        for (final Scalar<Boolean> item : this.iterable) {
-            futures.add(this.service.value().submit(item::value));
-        }
-        final boolean result = new And(
-            Future::get,
-            futures
-        ).value();
-        if (this.shut) {
-            this.service.value().shutdown();
-            try {
-                if (!this.service.value().awaitTermination(1L, TimeUnit.MINUTES)) {
-                    throw new IllegalStateException(
-                        new FormattedText(
-                            "Can't terminate the service, result=%b",
-                            result
-                        ).asString()
-                    );
-                }
-            } catch (final InterruptedException ex) {
-                Thread.currentThread().interrupt();
-                throw new IllegalStateException(ex);
-            }
-        }
-        return result;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

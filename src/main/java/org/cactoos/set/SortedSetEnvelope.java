@@ -14,8 +14,7 @@ import java.util.SortedSet;
  * @since 0.45
  * @checkstyle AbstractClassNameCheck (500 lines)
  */
-public abstract class SortedSetEnvelope<T> extends SetEnvelope<T> implements
-    SortedSet<T> {
+public abstract class SortedSetEnvelope<T> extends SetEnvelope<T> implements SortedSet<T> {
 
     /**
      * The original Set this object delegates to.
@@ -33,31 +32,31 @@ public abstract class SortedSetEnvelope<T> extends SetEnvelope<T> implements
 
     @Override
     public final Comparator<? super T> comparator() {
-        return this.origin.comparator();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final SortedSet<T> subSet(final T begin, final T end) {
-        return this.origin.subSet(begin, end);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final SortedSet<T> headSet(final T end) {
-        return this.origin.headSet(end);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final SortedSet<T> tailSet(final T from) {
-        return this.origin.tailSet(from);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final T first() {
-        return this.origin.first();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final T last() {
-        return this.origin.last();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

@@ -31,21 +31,21 @@ public abstract class IterableEnvelope<X> implements Iterable<X> {
 
     @Override
     public final Iterator<X> iterator() {
-        return this.wrapped.iterator();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final boolean equals(final Object other) {
-        return this.wrapped.equals(other);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final int hashCode() {
-        return this.wrapped.hashCode();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final String toString() {
-        return this.wrapped.toString();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

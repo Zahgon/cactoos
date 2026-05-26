@@ -83,11 +83,7 @@ final class WriterAsOutput implements Output {
      * @param ddr Decoder, deferred
      * @param max Buffer size
      */
-    private WriterAsOutput(
-        final Writer wtr,
-        final Scalar<CharsetDecoder> ddr,
-        final int max
-    ) {
+    private WriterAsOutput(final Writer wtr, final Scalar<CharsetDecoder> ddr, final int max) {
         this.writer = wtr;
         this.decoder = new Unchecked<>(new Sticky<>(ddr));
         this.size = max;
@@ -95,6 +91,6 @@ final class WriterAsOutput implements Output {
 
     @Override
     public OutputStream stream() {
-        return new WriterAsOutputStream(this.writer, this.decoder.value(), this.size);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

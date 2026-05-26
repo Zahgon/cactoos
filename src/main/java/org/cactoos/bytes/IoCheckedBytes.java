@@ -41,24 +41,22 @@ public final class IoCheckedBytes implements Bytes {
      */
     @SuppressWarnings("unchecked")
     public IoCheckedBytes(final Bytes bts, final Fallback<byte[]> fbk) {
-        this.scalar = new IoChecked<>(
-            () -> {
-                byte[] ret;
-                try {
-                    ret = bts.asBytes();
-                } catch (final IOException ex) {
-                    throw ex;
+        this.scalar = new IoChecked<>(() -> {
+            byte[] ret;
+            try {
+                ret = bts.asBytes();
+            } catch (final IOException ex) {
+                throw ex;
                 // @checkstyle IllegalCatchCheck (1 line)
-                } catch (final Throwable ex) {
-                    ret = fbk.apply(ex);
-                }
-                return ret;
+            } catch (final Throwable ex) {
+                ret = fbk.apply(ex);
             }
-        );
+            return ret;
+        });
     }
 
     @Override
     public byte[] asBytes() throws IOException {
-        return this.scalar.value();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

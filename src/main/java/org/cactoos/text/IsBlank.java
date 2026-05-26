@@ -32,7 +32,6 @@ public final class IsBlank implements Scalar<Boolean> {
 
     @Override
     public Boolean value() throws Exception {
-        return this.origin.asString().chars()
-            .allMatch(Character::isWhitespace);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

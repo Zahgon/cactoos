@@ -32,6 +32,6 @@ public final class UncheckedOutput implements Output {
 
     @Override
     public OutputStream stream() {
-        return new Unchecked<>(this.output::stream).value();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

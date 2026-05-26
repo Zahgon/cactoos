@@ -43,10 +43,7 @@ public final class ScalarWithFallback<T> implements Scalar<T> {
      * @param fbks The fallbacks
      */
     @SafeVarargs
-    public ScalarWithFallback(
-        final Scalar<? extends T> origin,
-        final Fallback<? extends T>... fbks
-    ) {
+    public ScalarWithFallback(final Scalar<? extends T> origin, final Fallback<? extends T>... fbks) {
         this(origin, new IterableOf<>(fbks));
     }
 
@@ -55,25 +52,14 @@ public final class ScalarWithFallback<T> implements Scalar<T> {
      * @param origin Original scalar
      * @param fbks Fallbacks
      */
-    public ScalarWithFallback(final Scalar<? extends T> origin,
-        final Iterable<? extends Fallback<? extends T>> fbks) {
+    public ScalarWithFallback(final Scalar<? extends T> origin, final Iterable<? extends Fallback<? extends T>> fbks) {
         this.origin = origin;
         this.fallbacks = fbks;
     }
 
     @Override
-        public T value() throws Exception {
-        T result;
-        try {
-            result = this.origin.value();
-        } catch (final InterruptedException ex) {
-            Thread.currentThread().interrupt();
-            result = this.fallback(ex);
-            // @checkstyle IllegalCatchCheck (1 line)
-        } catch (final Throwable ex) {
-            result = this.fallback(ex);
-        }
-        return result;
+    public T value() throws Exception {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -85,32 +71,11 @@ public final class ScalarWithFallback<T> implements Scalar<T> {
      */
     @SuppressWarnings("PMD.AvoidThrowingRawExceptionTypes")
     private T fallback(final Throwable exp) throws Exception {
-        final Iterator<? extends Map.Entry<Fallback<? extends T>, Integer>> candidates =
-            new Sorted<>(
-                Comparator.comparing(Map.Entry::getValue),
-                new Filtered<>(
-                    new org.cactoos.func.Flattened<>(
-                        entry -> new Not(
-                            new Equals<Integer, Integer>(
-                                entry::getValue,
-                                new Constant<>(Integer.MIN_VALUE)
-                            )
-                        )
-                    ),
-                    new MapOf<Fallback<? extends T>, Integer>(
-                        fbk -> fbk,
-                        fbk -> fbk.support(exp),
-                        this.fallbacks
-                    ).entrySet().iterator()
-                )
-            );
+        final Iterator<? extends Map.Entry<Fallback<? extends T>, Integer>> candidates = new Sorted<>(Comparator.comparing(Map.Entry::getValue), new Filtered<>(new org.cactoos.func.Flattened<>(entry -> new Not(new Equals<Integer, Integer>(entry::getValue, new Constant<>(Integer.MIN_VALUE)))), new MapOf<Fallback<? extends T>, Integer>(fbk -> fbk, fbk -> fbk.support(exp), this.fallbacks).entrySet().iterator()));
         if (candidates.hasNext()) {
             return candidates.next().getKey().apply(exp);
         } else {
-            throw new Exception(
-                "No fallback found - throw the original exception",
-                exp
-            );
+            throw new Exception("No fallback found - throw the original exception", exp);
         }
     }
 }

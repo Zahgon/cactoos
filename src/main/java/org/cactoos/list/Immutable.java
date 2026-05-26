@@ -35,157 +35,131 @@ public final class Immutable<T> implements List<T> {
 
     @Override
     public int size() {
-        return this.list.size();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public boolean isEmpty() {
-        return this.list.isEmpty();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public boolean contains(final Object item) {
-        return this.list.contains(item);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public Iterator<T> iterator() {
-        return new org.cactoos.iterator.Immutable<>(this.list.iterator());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public Object[] toArray() {
-        return this.list.toArray();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public <X> X[] toArray(final X[] array) {
-        return this.list.toArray(array);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public boolean add(final T item) {
-        throw new UnsupportedOperationException(
-            "#add(T): the list is read-only"
-        );
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public boolean remove(final Object item) {
-        throw new UnsupportedOperationException(
-            "#remove(Object): the list is read-only"
-        );
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public boolean containsAll(final Collection<?> items) {
-        return this.list.containsAll(items);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public boolean addAll(final Collection<? extends T> items) {
-        throw new UnsupportedOperationException(
-            "#addAll(Collection): the list is read-only"
-        );
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public boolean addAll(final int index, final Collection<? extends T> items) {
-        throw new UnsupportedOperationException(
-            "#addAll(int, Collection): the list is read-only"
-        );
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public boolean removeAll(final Collection<?> items) {
-        throw new UnsupportedOperationException(
-            "#removeAll(): the list is read-only"
-        );
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public boolean retainAll(final Collection<?> items) {
-        throw new UnsupportedOperationException(
-            "#retainAll(): the list is read-only"
-        );
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void clear() {
-        throw new UnsupportedOperationException(
-            "#clear(): the list is read-only"
-        );
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public T get(final int index) {
-        return this.list.get(index);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public T set(final int index, final T item) {
-        throw new UnsupportedOperationException(
-            "#set(): the list is read-only"
-        );
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void add(final int index, final T item) {
-        throw new UnsupportedOperationException(
-            "#add(int, T): the list is read-only"
-        );
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public T remove(final int index) {
-        throw new UnsupportedOperationException(
-            "#remove(int): the list is read-only"
-        );
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public int indexOf(final Object item) {
-        return this.list.indexOf(item);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public int lastIndexOf(final Object item) {
-        return this.list.lastIndexOf(item);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public ListIterator<T> listIterator() {
-        return new ImmutableListIterator<>(
-            this.list.listIterator()
-        );
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public ListIterator<T> listIterator(final int index) {
-        return new ImmutableListIterator<>(
-            this.list.listIterator(index)
-        );
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public List<T> subList(final int start, final int end) {
-        return new org.cactoos.list.Immutable<>(
-            this.list.subList(start, end)
-        );
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public boolean equals(final Object other) {
-        return this.list.equals(other);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public int hashCode() {
-        return this.list.hashCode();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String toString() {
-        return this.list.toString();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

@@ -16,7 +16,7 @@ import org.cactoos.scalar.Unchecked;
  * @since 1.0.0
  */
 @SuppressWarnings("serial")
-@SuppressFBWarnings({"SE_NO_SERIALVERSIONID", "SE_BAD_FIELD"})
+@SuppressFBWarnings({ "SE_NO_SERIALVERSIONID", "SE_BAD_FIELD" })
 public final class NumberOfScalars extends Number {
 
     /**
@@ -44,12 +44,7 @@ public final class NumberOfScalars extends Number {
      * @param nbr Number
      */
     public NumberOfScalars(final Scalar<? extends Number> nbr) {
-        this(
-            () -> nbr.value().longValue(),
-            () -> nbr.value().intValue(),
-            () -> nbr.value().floatValue(),
-            () -> nbr.value().doubleValue()
-        );
+        this(() -> nbr.value().longValue(), () -> nbr.value().intValue(), () -> nbr.value().floatValue(), () -> nbr.value().doubleValue());
     }
 
     /**
@@ -60,8 +55,7 @@ public final class NumberOfScalars extends Number {
      * @param dnm Long scalar
      * @checkstyle ParameterNumberCheck (5 lines)
      */
-    public NumberOfScalars(final Scalar<Long> lnm, final Scalar<Integer> inm,
-        final Scalar<Float> fnm, final Scalar<Double> dnm) {
+    public NumberOfScalars(final Scalar<Long> lnm, final Scalar<Integer> inm, final Scalar<Float> fnm, final Scalar<Double> dnm) {
         super();
         this.lnum = lnm;
         this.inum = inm;
@@ -71,39 +65,36 @@ public final class NumberOfScalars extends Number {
 
     @Override
     public int intValue() {
-        return new Unchecked<>(this.inum).value();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public long longValue() {
-        return new Unchecked<>(this.lnum).value();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public float floatValue() {
-        return new Unchecked<>(this.fnum).value();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public double doubleValue() {
-        return new Unchecked<>(this.dnum).value();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String toString() {
-        return Double.toString(this.doubleValue());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public boolean equals(final Object obj) {
-        return obj instanceof Number && Double.compare(
-            this.doubleValue(),
-            ((Number) obj).doubleValue()
-        ) == 0;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public int hashCode() {
-        return Double.hashCode(this.doubleValue());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

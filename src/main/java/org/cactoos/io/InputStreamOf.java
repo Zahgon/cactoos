@@ -191,8 +191,7 @@ public final class InputStreamOf extends InputStream {
      * @param max Buffer size
      * @since 0.13.2
      */
-    public InputStreamOf(final Reader rdr, final CharSequence charset,
-        final int max) {
+    public InputStreamOf(final Reader rdr, final CharSequence charset, final int max) {
         this(new InputOf(rdr, charset, max));
     }
 
@@ -215,47 +214,46 @@ public final class InputStreamOf extends InputStream {
 
     @Override
     public int read() throws IOException {
-        return this.source.value().read();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public int read(final byte[] buffer) throws IOException {
-        return this.source.value().read(buffer);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
-    public int read(final byte[] buffer, final int offset,
-        final int length) throws IOException {
-        return this.source.value().read(buffer, offset, length);
+    public int read(final byte[] buffer, final int offset, final int length) throws IOException {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void close() throws IOException {
-        this.source.value().close();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public long skip(final long num) throws IOException {
-        return this.source.value().skip(num);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public int available() throws IOException {
-        return this.source.value().available();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void mark(final int limit) {
-        this.source.value().mark(limit);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void reset() throws IOException {
-        this.source.value().reset();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public boolean markSupported() {
-        return this.source.value().markSupported();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

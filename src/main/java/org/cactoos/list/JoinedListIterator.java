@@ -59,10 +59,7 @@ public final class JoinedListIterator<T> implements ListIterator<T> {
      */
     @SuppressWarnings("unchecked")
     public JoinedListIterator(final T item, final ListIterator<? extends T> items) {
-        this(
-            (Scalar<List<? extends ListIterator<? extends T>>>) () ->
-                new ListOf<>(new ListOf<>(item).listIterator(), items)
-        );
+        this((Scalar<List<? extends ListIterator<? extends T>>>) () -> new ListOf<>(new ListOf<>(item).listIterator(), items));
     }
 
     /**
@@ -72,10 +69,7 @@ public final class JoinedListIterator<T> implements ListIterator<T> {
      */
     @SuppressWarnings("unchecked")
     public JoinedListIterator(final ListIterator<? extends T> items, final T item) {
-        this(
-            (Scalar<List<? extends ListIterator<? extends T>>>) () ->
-                new ListOf<>(items, new ListOf<>(item).listIterator())
-        );
+        this((Scalar<List<? extends ListIterator<? extends T>>>) () -> new ListOf<>(items, new ListOf<>(item).listIterator()));
     }
 
     /**
@@ -90,9 +84,7 @@ public final class JoinedListIterator<T> implements ListIterator<T> {
      * Ctor.
      * @param items Items to concatenate, deferred
      */
-    private JoinedListIterator(
-        final Scalar<List<? extends ListIterator<? extends T>>> items
-    ) {
+    private JoinedListIterator(final Scalar<List<? extends ListIterator<? extends T>>> items) {
         this.listiters = new Unchecked<>(new Sticky<>(items));
         this.cursorlit = new AtomicInteger(-1);
         this.cursor = new AtomicInteger(-1);
@@ -100,71 +92,47 @@ public final class JoinedListIterator<T> implements ListIterator<T> {
 
     @Override
     public boolean hasNext() {
-        while (!this.currentListIterator().hasNext() && this.listHasNextElt()) {
-            this.cursorlit.getAndIncrement();
-        }
-        return this.currentListIterator().hasNext();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public T next() {
-        if (!this.hasNext()) {
-            throw new NoSuchElementException();
-        }
-        try {
-            return this.currentListIterator().next();
-        } finally {
-            this.cursor.getAndIncrement();
-        }
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public boolean hasPrevious() {
-        while (!this.currentListIterator().hasPrevious() && this.listHasPreviousElt()) {
-            this.cursorlit.getAndDecrement();
-        }
-        return this.currentListIterator().hasPrevious();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public T previous() {
-        if (!this.hasPrevious()) {
-            throw new NoSuchElementException();
-        }
-        try {
-            return this.currentListIterator().previous();
-        } finally {
-            this.cursor.getAndDecrement();
-        }
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public int nextIndex() {
-        return this.cursor.get() + 1;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public int previousIndex() {
-        int previousidx = -1;
-        if (this.hasPrevious()) {
-            previousidx = this.cursor.get();
-        }
-        return previousidx;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void remove() {
-        throw new UnsupportedOperationException();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void set(final T elt) {
-        throw new UnsupportedOperationException();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void add(final T elt) {
-        throw new UnsupportedOperationException();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**

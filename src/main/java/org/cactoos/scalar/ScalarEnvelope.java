@@ -31,6 +31,6 @@ public abstract class ScalarEnvelope<T> implements Scalar<T> {
 
     @Override
     public final T value() throws Exception {
-        return this.scalar.value();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

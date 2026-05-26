@@ -240,8 +240,7 @@ public final class ReaderOf extends Reader {
      * @param charset The charset
      * @throws UnsupportedEncodingException If fails
      */
-    public ReaderOf(final InputStream stream, final CharSequence charset)
-        throws UnsupportedEncodingException {
+    public ReaderOf(final InputStream stream, final CharSequence charset) throws UnsupportedEncodingException {
         this((Scalar<Reader>) () -> new InputStreamReader(stream, charset.toString()));
     }
 
@@ -269,19 +268,16 @@ public final class ReaderOf extends Reader {
      */
     private ReaderOf(final Scalar<? extends Reader> src) {
         super();
-        this.source = new Unchecked<>(
-            new Sticky<>(src)
-        );
+        this.source = new Unchecked<>(new Sticky<>(src));
     }
 
     @Override
-    public int read(final char[] cbuf, final int off, final int len)
-        throws IOException {
-        return this.source.value().read(cbuf, off, len);
+    public int read(final char[] cbuf, final int off, final int len) throws IOException {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void close() throws IOException {
-        this.source.value().close();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

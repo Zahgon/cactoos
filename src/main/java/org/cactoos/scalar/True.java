@@ -17,6 +17,6 @@ public final class True implements Scalar<Boolean> {
 
     @Override
     public Boolean value() {
-        return true;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

@@ -36,8 +36,7 @@ public final class ZonedDateTimeOf implements Scalar<ZonedDateTime> {
      * @param format The format to use
      * @param zone The zone to use
      */
-    public ZonedDateTimeOf(final CharSequence date, final String format,
-        final ZoneId zone) {
+    public ZonedDateTimeOf(final CharSequence date, final String format, final ZoneId zone) {
         this(date, () -> DateTimeFormatter.ofPattern(format).withZone(zone));
     }
 
@@ -47,8 +46,7 @@ public final class ZonedDateTimeOf implements Scalar<ZonedDateTime> {
      * @param date The date to parse
      * @param formatter The formatter to use
      */
-    public ZonedDateTimeOf(final CharSequence date,
-        final DateTimeFormatter formatter) {
+    public ZonedDateTimeOf(final CharSequence date, final DateTimeFormatter formatter) {
         this(date, () -> formatter);
     }
 
@@ -57,15 +55,12 @@ public final class ZonedDateTimeOf implements Scalar<ZonedDateTime> {
      * @param date The date to parse
      * @param fmt The formatter to use, deferred
      */
-    private ZonedDateTimeOf(final CharSequence date,
-        final Scalar<DateTimeFormatter> fmt) {
-        this.parsed = new Unchecked<>(
-            () -> ZonedDateTime.from(fmt.value().parse(date))
-        );
+    private ZonedDateTimeOf(final CharSequence date, final Scalar<DateTimeFormatter> fmt) {
+        this.parsed = new Unchecked<>(() -> ZonedDateTime.from(fmt.value().parse(date)));
     }
 
     @Override
     public ZonedDateTime value() {
-        return this.parsed.value();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

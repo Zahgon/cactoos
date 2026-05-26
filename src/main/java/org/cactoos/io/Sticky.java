@@ -34,21 +34,15 @@ public final class Sticky implements Input {
      * @param input The input
      */
     public Sticky(final Input input) {
-        this.cache = new org.cactoos.scalar.Sticky<>(
-            () -> {
-                final ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                new LengthOf(
-                    new TeeInput(input, new OutputTo(baos))
-                ).value();
-                return baos.toByteArray();
-            }
-        );
+        this.cache = new org.cactoos.scalar.Sticky<>(() -> {
+            final ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            new LengthOf(new TeeInput(input, new OutputTo(baos))).value();
+            return baos.toByteArray();
+        });
     }
 
     @Override
     public InputStream stream() throws Exception {
-        return new ByteArrayInputStream(
-            new IoChecked<>(this.cache).value()
-        );
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

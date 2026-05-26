@@ -41,8 +41,7 @@ import org.cactoos.scalar.Unchecked;
  * @param <Y> Type of output
  * @since 0.10
  */
-public final class Async<X, Y> implements
-    Func<X, Future<Y>>, Proc<X>, Closeable {
+public final class Async<X, Y> implements Func<X, Future<Y>>, Proc<X>, Closeable {
 
     /**
      * The func.
@@ -64,13 +63,7 @@ public final class Async<X, Y> implements
      * @param fnc The func
      */
     public Async(final Func<X, Y> fnc) {
-        this(
-            fnc,
-            (Scalar<ExecutorService>) () -> Executors.newSingleThreadExecutor(
-                Executors.defaultThreadFactory()
-            ),
-            true
-        );
+        this(fnc, (Scalar<ExecutorService>) () -> Executors.newSingleThreadExecutor(Executors.defaultThreadFactory()), true);
     }
 
     /**
@@ -79,11 +72,7 @@ public final class Async<X, Y> implements
      * @param fct Factory
      */
     public Async(final Func<X, Y> fnc, final ThreadFactory fct) {
-        this(
-            fnc,
-            (Scalar<ExecutorService>) () -> Executors.newSingleThreadExecutor(fct),
-            true
-        );
+        this(fnc, (Scalar<ExecutorService>) () -> Executors.newSingleThreadExecutor(fct), true);
     }
 
     /**
@@ -101,11 +90,7 @@ public final class Async<X, Y> implements
      * @param exec Executor Service, deferred
      * @param sht Shut it down on close
      */
-    private Async(
-        final Func<X, Y> fnc,
-        final Scalar<ExecutorService> exec,
-        final boolean sht
-    ) {
+    private Async(final Func<X, Y> fnc, final Scalar<ExecutorService> exec, final boolean sht) {
         this.func = fnc;
         this.executor = new Unchecked<>(new Sticky<>(exec));
         this.shutdown = sht;
@@ -113,28 +98,16 @@ public final class Async<X, Y> implements
 
     @Override
     public Future<Y> apply(final X input) {
-        return this.executor.value().submit(
-            () -> this.func.apply(input)
-        );
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void exec(final X input) {
-        this.apply(input);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void close() {
-        if (this.shutdown) {
-            this.executor.value().shutdown();
-            try {
-                if (!this.executor.value().awaitTermination(1L, TimeUnit.MINUTES)) {
-                    this.executor.value().shutdownNow();
-                }
-            } catch (final InterruptedException ex) {
-                Thread.currentThread().interrupt();
-                this.executor.value().shutdownNow();
-            }
-        }
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

@@ -31,16 +31,16 @@ public final class Immutable<T> implements Iterator<T> {
 
     @Override
     public boolean hasNext() {
-        return this.iterator.hasNext();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public T next() {
-        return this.iterator.next();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String toString() {
-        return this.iterator.toString();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

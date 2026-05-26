@@ -41,83 +41,76 @@ public abstract class MapEnvelope<X, Y> implements Map<X, Y> {
 
     @Override
     public final int size() {
-        return this.map.size();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final boolean isEmpty() {
-        return this.map.isEmpty();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final boolean containsKey(final Object key) {
-        return this.map.containsKey(key);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final boolean containsValue(final Object value) {
-        return this.map.containsValue(value);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final Y get(final Object key) {
-        return this.map.get(key);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final Y put(final X key, final Y value) {
-        return this.map.put(key, value);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final Y remove(final Object key) {
-        return this.map.remove(key);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final void putAll(final Map<? extends X, ? extends Y> extra) {
-        this.map.putAll(extra);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final void clear() {
-        this.map.clear();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final Set<X> keySet() {
-        return this.map.keySet();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final Collection<Y> values() {
-        return this.map.values();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final Set<Map.Entry<X, Y>> entrySet() {
-        return this.map.entrySet();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final String toString() {
-        return new Concatenated(
-            new TextOf("{"),
-            new Joined(
-                ", ",
-                new Mapped<>(Object::toString, this.entrySet())
-            ),
-            new TextOf("}")
-        ).toString();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final boolean equals(final Object other) {
-        return this.map.equals(other);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final int hashCode() {
-        return new HashCode(this.map).value();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

@@ -55,10 +55,6 @@ public final class Directory implements Iterable<Path> {
 
     @Override
     public Iterator<Path> iterator() {
-        try (Stream<Path> files = Files.walk(new Unchecked<>(this.dir).value())) {
-            return files.collect(Collectors.toList()).iterator();
-        } catch (final IOException ex) {
-            throw new IllegalStateException(ex);
-        }
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

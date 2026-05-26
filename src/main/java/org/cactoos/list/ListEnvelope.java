@@ -18,8 +18,7 @@ import org.cactoos.collection.CollectionEnvelope;
  * @since 0.23
  * @checkstyle AbstractClassNameCheck (500 lines)
  */
-public abstract class ListEnvelope<T> extends CollectionEnvelope<T> implements
-    List<T> {
+public abstract class ListEnvelope<T> extends CollectionEnvelope<T> implements List<T> {
 
     /**
      * Encapsulated list.
@@ -36,53 +35,52 @@ public abstract class ListEnvelope<T> extends CollectionEnvelope<T> implements
     }
 
     @Override
-    public final boolean addAll(final int index,
-        final Collection<? extends T> items) {
-        return this.list.addAll(index, items);
+    public final boolean addAll(final int index, final Collection<? extends T> items) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final T get(final int index) {
-        return this.list.get(index);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final T set(final int index, final T element) {
-        return this.list.set(index, element);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final void add(final int index, final T element) {
-        this.list.add(index, element);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final T remove(final int index) {
-        return this.list.remove(index);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final int indexOf(final Object item) {
-        return this.list.indexOf(item);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final int lastIndexOf(final Object item) {
-        return this.list.lastIndexOf(item);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final ListIterator<T> listIterator() {
-        return this.list.listIterator();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final ListIterator<T> listIterator(final int index) {
-        return this.list.listIterator(index);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final List<T> subList(final int start, final int end) {
-        return this.list.subList(start, end);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

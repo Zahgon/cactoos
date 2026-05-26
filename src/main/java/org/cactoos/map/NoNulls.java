@@ -37,134 +37,62 @@ public class NoNulls<K, V> implements Map<K, V> {
 
     @Override
     public final int size() {
-        return this.map.size();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final boolean isEmpty() {
-        return this.map.isEmpty();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final boolean containsKey(final Object key) {
-        if (key == null) {
-            throw new IllegalStateException(
-                "Key at #containsKey(K) is NULL"
-            );
-        }
-        return this.map.containsKey(key);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final boolean containsValue(final Object value) {
-        if (value == null) {
-            throw new IllegalStateException(
-                "Value at #containsValue(K) is NULL"
-            );
-        }
-        return this.map.containsValue(value);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final V get(final Object key) {
-        if (key == null) {
-            throw new IllegalStateException(
-                "Key at #get(K) is NULL"
-            );
-        }
-        final V value = this.map.get(key);
-        if (value == null) {
-            throw new IllegalStateException(
-                new UncheckedText(
-                    new FormattedText(
-                        "Value returned by #get(%s) is NULL",
-                        key
-                    )
-                ).asString()
-            );
-        }
-        return value;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final V put(final K key, final V value) {
-        if (key == null) {
-            throw new IllegalStateException(
-                new UncheckedText(
-                    new FormattedText(
-                        "Key at #put(K,%s) is NULL",
-                        value
-                    )
-                ).asString()
-            );
-        }
-        if (value == null) {
-            throw new IllegalStateException(
-                new UncheckedText(
-                    new FormattedText(
-                        "Value at #put(%s,V) is NULL", key
-                    )
-                ).asString()
-            );
-        }
-        final V result = this.map.put(key, value);
-        if (result == null) {
-            throw new IllegalStateException(
-                new UncheckedText(
-                    new FormattedText(
-                        "Value returned by #put(%s,%s) is NULL",
-                        key, value
-                    )
-                ).asString()
-            );
-        }
-        return result;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final V remove(final Object key) {
-        if (key == null) {
-            throw new IllegalStateException(
-                "Key at #remove(K) is NULL"
-            );
-        }
-        final V result = this.map.remove(key);
-        if (result == null) {
-            throw new IllegalStateException(
-                new UncheckedText(
-                    new FormattedText(
-                        "Value returned by #remove(%s) is NULL",
-                        key
-                    )
-                ).asString()
-            );
-        }
-        return result;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     @SuppressWarnings("unchecked")
     public final void putAll(final Map<? extends K, ? extends V> items) {
-        this.map.putAll(new org.cactoos.map.NoNulls<>((Map<K, V>) items));
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final void clear() {
-        this.map.clear();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final Set<K> keySet() {
-        return this.map.keySet();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final Collection<V> values() {
-        return new org.cactoos.collection.NoNulls<>(this.map.values());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final Set<Map.Entry<K, V>> entrySet() {
-        return this.map.entrySet();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

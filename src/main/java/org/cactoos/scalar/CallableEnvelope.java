@@ -31,6 +31,6 @@ public abstract class CallableEnvelope<T> implements Callable<T> {
 
     @Override
     public final T call() throws Exception {
-        return this.origin.call();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

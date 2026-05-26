@@ -47,8 +47,6 @@ public final class ForEach<X> implements Proc<Iterable<? extends X>> {
 
     @Override
     public void exec(final Iterable<? extends X> input) throws Exception {
-        new And(
-            new FuncOf<>(this.proc, true), input
-        ).value();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

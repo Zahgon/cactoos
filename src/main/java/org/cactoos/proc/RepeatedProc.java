@@ -31,14 +31,11 @@ public final class RepeatedProc<X> implements Proc<X> {
      * @param count How many times
      */
     public RepeatedProc(final Proc<? super X> prc, final int count) {
-        this.func = new Repeated<>(
-            new FuncOf<>(prc, true),
-            count
-        );
+        this.func = new Repeated<>(new FuncOf<>(prc, true), count);
     }
 
     @Override
     public void exec(final X input) throws Exception {
-        this.func.apply(input);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

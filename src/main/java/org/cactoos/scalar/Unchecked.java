@@ -33,10 +33,6 @@ public final class Unchecked<T> implements Scalar<T> {
 
     @Override
     public T value() {
-        try {
-            return new IoChecked<>(this.origin).value();
-        } catch (final IOException ex) {
-            throw new UncheckedIOException(ex);
-        }
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

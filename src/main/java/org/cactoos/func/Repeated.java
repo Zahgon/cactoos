@@ -41,15 +41,6 @@ public final class Repeated<X, Y> implements Func<X, Y> {
 
     @Override
     public Y apply(final X input) throws Exception {
-        if (this.times <= 0) {
-            throw new IllegalArgumentException(
-                "The number of repetitions must be at least 1"
-            );
-        }
-        Y result = null;
-        for (int idx = 0; idx < this.times; ++idx) {
-            result = this.func.apply(input);
-        }
-        return result;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

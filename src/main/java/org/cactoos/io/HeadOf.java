@@ -35,6 +35,6 @@ public final class HeadOf implements Input {
 
     @Override
     public InputStream stream() throws Exception {
-        return new HeadInputStream(this.origin.stream(), this.length);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }
